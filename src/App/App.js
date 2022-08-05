@@ -11,12 +11,12 @@ const App = () => {
   
   
   useEffect(() => {
-    getBookList()
+    getBookList(1)
   .then((response) => {
-    // setBookList(bookList => ({
-    //   ...bookList,
-    //   ...response
-    // }))
+    setBookList(bookList => ({
+      ...bookList,
+      ...response
+    }))
     setBookList(response.results)
     setNextPageLink(response.next)
     })
