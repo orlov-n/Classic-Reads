@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { getBookList } from '../apiCalls'
+import BookList from '../BookList/BookList';
 
 const App = () => {
   const [bookList, setBookList] = useState([])
@@ -10,7 +11,7 @@ const App = () => {
     getBookList()
   .then((response) => {
     setBookList(response.results)
-    console.log('this is bookList in useEffect', bookList)
+    // console.log('this is bookList in useEffect', bookList)
   })
   // .catch((err) => {
     //   setErrorMessage(err)
@@ -20,9 +21,10 @@ const App = () => {
 
 return (
   <>
-  <div>{console.log('this is bookList in the return', bookList)}</div>
+  {/* <div>{console.log('this is bookList in the return', bookList)}</div>
   <h1>Hello THERE</h1>
-  <iframe></iframe>
+  <iframe></iframe> */}
+  <BookList bookListProp={bookList} />
   </>
 )
 
