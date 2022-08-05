@@ -5,9 +5,9 @@ export const FullBook = ({fullBookLink}) => {
 
   return (
     <section>
-      {/* <iframe src={fullBookLink}></iframe> */}
+      <iframe src={fullBookLink}></iframe>
     </section>
   )
 }
 
-// export default FullBook;
+export default FullBook;
