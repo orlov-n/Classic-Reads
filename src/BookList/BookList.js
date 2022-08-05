@@ -3,15 +3,13 @@ import './BookList.css'
 import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
 
-const BookList = ({bookListProp}) => {
+const BookList = ({bookListProp, returnNextPage, nextPageLink}) => {
   const [bookList, setBookList] = useState([])
-
-
 
   useEffect(() => {
     renderBookCards()
     setBookList(bookListProp)
-  }, [bookListProp])
+  }, [bookListProp, nextPageLink])
 
   const renderBookCards = () => {
     return bookList.map(bookCard => {
@@ -21,14 +19,13 @@ const BookList = ({bookListProp}) => {
     })
   }
 
-  const openFullBook = () => {
-    
-  }
 
 return (
   <section className='book-list'>
-    {console.log('this is booklist from Booklist', bookList)}
+    {console.log(bookList)}
+    {console.log(nextPageLink)}
     {renderBookCards()}
+    <button onClick={() => returnNextPage()}>Next Page</button>
   </section>
 )
 
