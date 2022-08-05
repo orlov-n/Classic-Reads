@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './BookList.css'
+import BookCard from '../BookCard/BookCard';
 
 const BookList = ({bookListProp}) => {
   const [bookList, setBookList] = useState([])
@@ -14,7 +15,7 @@ const BookList = ({bookListProp}) => {
   const renderBookCards = () => {
     return bookList.map(bookCard => {
       return (
-        <BookCard key={bookCard.id} bookCard={bookCard} />
+        <BookCard key={bookCard.id} bookCardProp={bookCard} />
       )
     })
   }
