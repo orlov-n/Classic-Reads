@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     getBookList()
   .then((response) => {
-    console.log('this is response in useEffect', response)
+    // console.log('this is response in useEffect', response)
     // console.log('this is bookList in useEffect', bookList)
     setBookList(response)
   })

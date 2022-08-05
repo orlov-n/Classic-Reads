@@ -4,7 +4,7 @@ import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
 
 const BookList = ({bookListProp, returnNextPage}) => {
-  console.log('this is booklist prop', bookListProp)
+  // console.log('this is booklist prop', bookListProp)
   const [bookList, setBookList] = useState([])
 
   useEffect(() => {

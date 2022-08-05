@@ -5,7 +5,7 @@ const BookCard = ({bookCardProp}) => {
 
   return (
     <>
-    <div>{console.log(bookCardProp.title)}</div>
+    {/* <div>{console.log(bookCardProp.title)}</div> */}
     <div>{bookCardProp.title}</div>
     </>
   )
