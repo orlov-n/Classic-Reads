@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './BookList.css'
 import BookCard from '../BookCard/BookCard';
+import { FullBook } from '../FullBook/FullBook';
 
 const BookList = ({bookListProp}) => {
   const [bookList, setBookList] = useState([])
@@ -18,6 +19,10 @@ const BookList = ({bookListProp}) => {
         <BookCard key={bookCard.id} bookCardProp={bookCard} />
       )
     })
+  }
+
+  const openFullBook = () => {
+    
   }
 
 return (
