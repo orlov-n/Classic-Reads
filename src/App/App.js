@@ -54,7 +54,7 @@ const App = () => {
      
      {bookList.results && 
      <Route exact path='/:book_id' render={(match) => {
-      console.log('match from app', match)
+      // console.log('match from app', match)
       return (
        
         <FullBook bookList={bookList.results} bookId={match.match.params.book_id}  />

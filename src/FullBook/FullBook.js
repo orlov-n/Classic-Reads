@@ -19,7 +19,7 @@ console.log('bookId in full book', bookList)
       }
     })
     setBookLink(returnedBookLink.formats['text/html'])
-    console.log('this is book link', returnedBookLink)
+    // console.log('this is book link', returnedBookLink)
   }
 
   return (

@@ -18,7 +18,6 @@ const BookList = ({bookListProp, returnNextPage, returnBookLink}) => {
       return (
 
           <NavLink to={`/${bookCard.id}`}  key={bookCard.id}>
-        
             <BookCard bookCardProp={bookCard} returnBookLink={returnBookLink} />
           </NavLink>
       )
