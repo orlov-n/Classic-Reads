@@ -6,12 +6,14 @@ import { Routes, Route, Link, NavLink } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import FullBook from "../FullBook/FullBook";
 
+
+
 const App = () => {
   const [bookList, setBookList] = useState({});
 
   useEffect(() => {
     getBookList().then((response) => {
-      // console.log('this is response in useEffect', response)
+      console.log('this is response in useEffect', response)
       // console.log('this is bookList in useEffect', bookList)
       setBookList(response);
     });
@@ -25,35 +27,28 @@ const App = () => {
 
   // console.log('this is booklist in App above return', bookList)
   return (
-    <body>
+    <div className="App">
      
      <nav>
-      <h1>Hello THERE</h1>
+      <NavLink to={'/'}>
+      <h1>Read Now</h1>
+      </NavLink>
       <SearchBar />
-
      </nav>
+     {/* <Route exact path='/' render={() => 
+     
+    
 
-     {/* <NavLink to={'/'}>
-      
-     </NavLink> */}
+  }/> */}
+     
      <FullBook />
-      {/* <div>{console.log('App.js this is bookList in the return', bookList.results)}</div> */}
-
-      {/* home page route="/"
-        
-      book page route=":book_name" */}
-
-      { /* CUSTOM HEADER COMPONENT */ }
-      {/* <iframe></iframe>  */}
-      
-      {bookList.results && (
+     
+     {bookList.results && (
         <BookList bookListProp={bookList.results} returnNextPage={returnNextPage} />
-        
-          
-        
       )}
-      { /* CUSTOM FOOTER COMPONENT */ }
-    </body>
+      
+      
+    </div>
   );
 };
 

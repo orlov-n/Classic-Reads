@@ -1,6 +1,17 @@
-.book-list {
-  /* z-index: 10000; */
+/* .book-list {
+  z-index: 10000;
   position: fixed;
   top: 0px;
   width: 100%;
+} */
+
+.book-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 4rem; */
+  margin-top: 6rem;
+  position: absolute;
 }

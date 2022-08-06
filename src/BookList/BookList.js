@@ -25,7 +25,7 @@ const BookList = ({bookListProp, returnNextPage}) => {
   }
 
 return (
-  <section className='book-list'>
+  <section className='book-list-container'>
     {/* {console.log('this is booklist from Booklist', bookList)} */}
    
     {/* {renderBookCards()} */}
