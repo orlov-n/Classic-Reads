@@ -18,6 +18,17 @@ const searchQuery = (query) => {
       }
       throw Error(response.statusText)
     }) 
+
+    // const getBookLink = (bookID) => {
+    //   return fetch(`https://gutendex.com/books/${bookID}`)
+    //   .then((response) => {
+    //     if (response.ok) {
+    //       // console.log('this is response', response.json())
+    //       return response.json()
+    //     }
+    //     throw Error(response.statusText)
+    //   }) 
+    // }
 }
 
 

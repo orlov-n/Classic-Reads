@@ -2,8 +2,9 @@ import React, { useState, useEffect} from 'react';
 import './BookList.css'
 import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
+import { NavLink } from 'react-router-dom';
 
-const BookList = ({bookListProp, returnNextPage}) => {
+const BookList = ({bookListProp, returnNextPage, returnBookLink}) => {
   // console.log('this is booklist prop', bookListProp)
   const [bookList, setBookList] = useState([])
 
@@ -15,7 +16,11 @@ const BookList = ({bookListProp, returnNextPage}) => {
   const renderBookCards = () => {
     return bookList.map(bookCard => {
       return (
-        <BookCard key={bookCard.id} bookCardProp={bookCard} />
+
+          <NavLink to={`/${bookCard.id}`}>
+        
+            <BookCard key={bookCard.id} bookCardProp={bookCard} returnBookLink={returnBookLink} />
+          </NavLink>
       )
     })
   }

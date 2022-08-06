@@ -5,11 +5,13 @@ import BookList from "../BookList/BookList";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import FullBook from "../FullBook/FullBook";
+import { WelcomePage } from "../WelcomePage/WelcomePage";
 
 
 
 const App = () => {
   const [bookList, setBookList] = useState({});
+  const [bookLink, setBookLink] = useState('');
 
   useEffect(() => {
     getBookList().then((response) => {
@@ -23,6 +25,15 @@ const App = () => {
     // })
   }, []);
 
+  const returnBookLink = (returnedBookID) => {
+    const returnedBookLink = bookList.results.find(item => {
+      item.id === returnedBookID {
+        return 
+      }
+    })
+    setBookLink(returnedBookLink)
+  }
+
   const returnNextPage = () => {};
 
   // console.log('this is booklist in App above return', bookList)
@@ -35,16 +46,21 @@ const App = () => {
       </NavLink>
       <SearchBar />
      </nav>
-     {/* <Route exact path='/' render={() => 
+     <Route exact path='/' render={() => 
+      <WelcomePage />     
+      }/>
      
-    
+     <Route exact path='/:book_id' render={() => {
+      return (
+        <FullBook fullBookLink={bookLink}   />
 
-  }/> */}
-     
-     <FullBook />
+      )
+
+
+     }}/>
      
      {bookList.results && (
-        <BookList bookListProp={bookList.results} returnNextPage={returnNextPage} />
+        <BookList bookListProp={bookList.results} returnNextPage={returnNextPage} returnBookLink={returnBookLink}/>
       )}
       
       

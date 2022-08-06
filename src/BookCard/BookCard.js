@@ -1,13 +1,13 @@
 import React from 'react';
 import './BookCard.css'
 
-const BookCard = ({bookCardProp}) => {
+const BookCard = ({bookCardProp, returnBookLink }) => {
 
   return (
     <>
     {/* <div>{console.log(bookCardProp.title)}</div> */}
 
-  <div className="book">
+  <div className="book" onClick={() => returnBookLink()}>
     <div className="pagenext">
       <p>{bookCardProp.title}</p>
     </div>
