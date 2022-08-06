@@ -18,6 +18,7 @@ const App = () => {
       console.log('this is response in useEffect', response)
       // console.log('this is bookList in useEffect', bookList)
       setBookList(response);
+      
     });
     // .catch((err) => {
     //   setErrorMessage(err)
@@ -27,11 +28,12 @@ const App = () => {
 
   const returnBookLink = (returnedBookID) => {
     const returnedBookLink = bookList.results.find(item => {
-      item.id === returnedBookID {
-        return 
+      if (item.id === returnedBookID) {
+        return item.formats['text/html']
       }
     })
-    setBookLink(returnedBookLink)
+    setBookLink(returnedBookLink.formats['text/html'])
+    console.log('this is book link', returnedBookLink)
   }
 
   const returnNextPage = () => {};
@@ -52,6 +54,7 @@ const App = () => {
      
      <Route exact path='/:book_id' render={() => {
       return (
+       
         <FullBook fullBookLink={bookLink}   />
 
       )
