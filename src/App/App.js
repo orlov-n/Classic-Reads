@@ -9,8 +9,10 @@ import { WelcomePage } from "../WelcomePage/WelcomePage";
 
 
 
+
 const App = () => {
   const [bookList, setBookList] = useState({});
+  const [pageNum, setPageNum] = useState(1);
   // const [bookLink, setBookLink] = useState('');
 
   useEffect(() => {
@@ -53,25 +55,25 @@ const App = () => {
       }/>
      
      {bookList.results && 
-     <Route exact path='/:book_id' render={(match) => {
-      // console.log('match from app', match)
-      return (
-       
-        <FullBook bookList={bookList.results} bookId={match.match.params.book_id}  />
+     <Route exact path='/:page_num/:book_id' render={(match) => {
+       return (
+         <FullBook bookList={bookList.results} bookId={match.match.params.book_id}  />
+         )
+        }}/>
+      }
+     {bookList.results && 
+      <Route path='/:page_num' render={(match) => {
+        console.log('match from app', match)
+        return (
+        <BookList bookListProp={bookList.results} returnNextPage={returnNextPage} pageNum={pageNum} pageNumber={match}/>
+        )
+    
+      }}/>
+    }  
+      </div>
 
-      )
-
-
-     }}/>
-    }
-
-     {bookList.results && (
-        <BookList bookListProp={bookList.results} returnNextPage={returnNextPage}/>
-      )}
-      
-      
-    </div>
   );
+    
 };
 
 export default App;

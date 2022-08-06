@@ -4,7 +4,7 @@ import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
 import { NavLink } from 'react-router-dom';
 
-const BookList = ({bookListProp, returnNextPage, returnBookLink}) => {
+const BookList = ({bookListProp, returnNextPage, returnBookLink, pageNum}) => {
   // console.log('this is booklist prop', bookListProp)
   const [bookList, setBookList] = useState([])
 
@@ -17,7 +17,7 @@ const BookList = ({bookListProp, returnNextPage, returnBookLink}) => {
     return bookList.map(bookCard => {
       return (
 
-          <NavLink to={`/${bookCard.id}`}  key={bookCard.id}>
+          <NavLink to={`/${pageNum}/${bookCard.id}`}  key={bookCard.id}>
             <BookCard bookCardProp={bookCard} returnBookLink={returnBookLink} />
           </NavLink>
       )
@@ -34,7 +34,10 @@ return (
    
     {/* {renderBookCards()} */}
     {bookListProp && renderBookCards()}
+    {/* <NavLink> */}
+
     <button onClick={() => returnNextPage()}>Next Page</button>
+    {/* </NavLink> */}
   </section>
 )
 
