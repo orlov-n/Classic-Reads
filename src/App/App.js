@@ -11,7 +11,7 @@ import { WelcomePage } from "../WelcomePage/WelcomePage";
 
 const App = () => {
   const [bookList, setBookList] = useState({});
-  const [bookLink, setBookLink] = useState('');
+  // const [bookLink, setBookLink] = useState('');
 
   useEffect(() => {
     getBookList().then((response) => {
@@ -26,15 +26,15 @@ const App = () => {
     // })
   }, []);
 
-  const returnBookLink = (returnedBookID) => {
-    const returnedBookLink = bookList.results.find(item => {
-      if (item.id === returnedBookID) {
-        return item.formats['text/html']
-      }
-    })
-    setBookLink(returnedBookLink.formats['text/html'])
-    console.log('this is book link', returnedBookLink)
-  }
+  // const returnBookLink = (returnedBookID) => {
+  //   const returnedBookLink = bookList.results.find(item => {
+  //     if (item.id === returnedBookID) {
+  //       return item.formats['text/html']
+  //     }
+  //   })
+  //   setBookLink(returnedBookLink.formats['text/html'])
+  //   console.log('this is book link', returnedBookLink)
+  // }
 
   const returnNextPage = () => {};
 
@@ -52,18 +52,21 @@ const App = () => {
       <WelcomePage />     
       }/>
      
-     <Route exact path='/:book_id' render={() => {
+     {bookList.results && 
+     <Route exact path='/:book_id' render={(match) => {
+      console.log('match from app', match)
       return (
        
-        <FullBook fullBookLink={bookLink}   />
+        <FullBook bookList={bookList.results} bookId={match.match.params.book_id}  />
 
       )
 
 
      }}/>
-     
+    }
+
      {bookList.results && (
-        <BookList bookListProp={bookList.results} returnNextPage={returnNextPage} returnBookLink={returnBookLink}/>
+        <BookList bookListProp={bookList.results} returnNextPage={returnNextPage}/>
       )}
       
       

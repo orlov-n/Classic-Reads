@@ -17,9 +17,9 @@ const BookList = ({bookListProp, returnNextPage, returnBookLink}) => {
     return bookList.map(bookCard => {
       return (
 
-          <NavLink to={`/${bookCard.id}`}>
+          <NavLink to={`/${bookCard.id}`}  key={bookCard.id}>
         
-            <BookCard key={bookCard.id} bookCardProp={bookCard} returnBookLink={returnBookLink} />
+            <BookCard bookCardProp={bookCard} returnBookLink={returnBookLink} />
           </NavLink>
       )
     })

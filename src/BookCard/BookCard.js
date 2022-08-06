@@ -7,7 +7,7 @@ const BookCard = ({bookCardProp, returnBookLink }) => {
     <>
     {/* <div>{console.log('this is book id from book card', bookCardProp.id)}</div> */}
 
-  <div className="book" onClick={() => returnBookLink(bookCardProp.id)}>
+  <div className="book">
     <div className="pagenext">
       <p>{bookCardProp.title}</p>
     </div>
