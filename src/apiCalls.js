@@ -10,7 +10,7 @@ const getBookList = (pageNum) => {
 }
 
 const searchQuery = (query) => {
-  return fetch(`https://gutendex.com/books/?languages=en&search=${query}`)
+  return fetch(`https://gutendex.com/books/?copyright=false&languages=en&search=${query}`)
     .then((response) => {
       if (response.ok) {
         // console.log('this is response', response.json())
