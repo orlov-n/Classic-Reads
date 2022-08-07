@@ -1,22 +1,19 @@
-* {
+/* * {
   border: rgb(141, 141, 242) solid 1.5px;
   background-color: #e9dfcc;
-}
+} */
 
 .App {
-  /* width: 50%; */
   margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
   min-width: 320px;
 
 }
+
 nav {
-  /* z-index: 10000; */
-  /* position: fixed; */
   top: 0px;
   width: 100%;
   margin-bottom: 4rem;
-  /* position: absolute; */
 }
 
 
@@ -38,10 +35,11 @@ h1 {
 }
 
 h1:hover {
-  box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+  box-shadow: 0 5px 35px 0px rgba(0, 0, 0, .1);
 }
 
-h1:hover::before, h1:hover::after {
+h1:hover::before,
+h1:hover::after {
   display: block;
   content: '';
   position: absolute;
@@ -63,37 +61,45 @@ h1:hover:after {
     top: -5px;
     left: 0;
   }
+
   12% {
     top: -2px;
     left: 2px;
   }
+
   25% {
     top: 0;
-    left: 5px;    
+    left: 5px;
   }
+
   37% {
     top: 2px;
     left: 2px;
   }
+
   50% {
     top: 5px;
-    left: 0;    
+    left: 0;
   }
+
   62% {
     top: 2px;
     left: -2px;
   }
+
   75% {
     top: 0;
     left: -5px;
   }
+
   87% {
     top: -2px;
     left: -2px;
   }
+
   100% {
     top: -5px;
-    left: 0;    
+    left: 0;
   }
 }
 
@@ -102,36 +108,44 @@ h1:hover:after {
     top: -5px;
     right: 0;
   }
+
   12% {
     top: -2px;
     right: 2px;
   }
+
   25% {
     top: 0;
-    right: 5px;    
+    right: 5px;
   }
+
   37% {
     top: 2px;
     right: 2px;
   }
+
   50% {
     top: 5px;
-    right: 0;    
+    right: 0;
   }
+
   62% {
     top: 2px;
     right: -2px;
   }
+
   75% {
     top: 0;
     right: -5px;
   }
+
   87% {
     top: -2px;
     right: -2px;
   }
+
   100% {
     top: -5px;
-    right: 0;    
+    right: 0;
   }
 }

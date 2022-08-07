@@ -10,26 +10,13 @@
   margin-bottom: 11rem;
   /* height: 75rem; */
 }
-/* 
-.full-book {
-  height: 94vh;
-  width: 94vw;
-} */
+
 
 embed {
   /* height: 55rem; */
   width: 100%;
   height: 100%;
   margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
   min-width: 320px;
-  /* width: 94vw; */
 }
-/* iframe > body {
-  height: 75rem;
-  width: 80%;
-  min-width: 320px;
-  color: red;
-  
-  width: 94vw;
-} */
