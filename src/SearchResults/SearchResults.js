@@ -11,7 +11,7 @@ export const SearchResults = ({userInput}) => {
 
   useEffect(() => {
     searchQuery(userInput).then ( data => {
-// console.log('data from search results', data)
+console.log('data from search results', data)
       setSearchResults(data.results)
     }
     )

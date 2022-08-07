@@ -1,5 +1,5 @@
 const getBookList = (pageNum) => {
-  return fetch(`https://gutendex.com/books/?page=${pageNum}`)
+  return fetch(`https://gutendex.com/books/?languages=en&page=${pageNum}`)
     .then((response) => {
       if (response.ok) {
         // console.log('this is response', response.json())
@@ -10,7 +10,7 @@ const getBookList = (pageNum) => {
 }
 
 const searchQuery = (query) => {
-  return fetch(`https://gutendex.com/books/?search=${query}`)
+  return fetch(`https://gutendex.com/books/?languages=en&search=${query}`)
     .then((response) => {
       if (response.ok) {
         // console.log('this is response', response.json())

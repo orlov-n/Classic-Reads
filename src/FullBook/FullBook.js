@@ -15,8 +15,10 @@ console.log('bookId in full book', bookList)
   const returnBookLink = (returnedBookID) => {
     console.log('returned book id from FullBook', bookList)
     const returnedBookLink = bookList.find(item => {
-      if (item.id === parseInt(returnedBookID)) {
-        return item.formats['text/html']
+      if (item.id === parseInt(returnedBookID) && item.formats['text/html; charset=utf-8'] || item.formats['text/html']) {
+        return item.formats['text/html; charset=utf-8'] || item.formats['text/html'] 
+        
+        
       }
     })
     setBookLink(returnedBookLink.formats['text/html'])
