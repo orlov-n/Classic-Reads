@@ -21,7 +21,7 @@ const App = () => {
     getBookList(pageNum).then((response) => {
       console.log('this is response in useEffect', response)
       const acceptableFormats = response.results.filter(item => {
-       if (item.formats['text/html; charset=utf-8'] !== undefined || item.formats['text/html'] !== undefined) {
+       if (item.formats['text/html'] !== undefined) {
         return item
        }
       })

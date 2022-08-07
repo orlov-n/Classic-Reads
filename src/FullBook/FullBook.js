@@ -17,7 +17,7 @@ console.log('bookId in full book under use state', bookId)
         return item
       }
     })
-    let acceptableFormats = returnedBookLink.formats['text/html; charset=utf-8'] || returnedBookLink.formats['text/html'] 
+    let acceptableFormats = returnedBookLink.formats['text/html'] || returnedBookLink.formats['text/html; charset=utf-8']
     setBookLink(acceptableFormats)
     console.log('this is book link', bookLink)
   }
