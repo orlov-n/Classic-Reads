@@ -4,25 +4,22 @@ import { useState, useEffect } from 'react';
 
 export const FullBook = ({bookList, bookId}) => {
   const [bookLink, setBookLink] = useState('');
-console.log('bookId in full book', bookList)
+console.log('bookId in full book under use state', bookId)
 
   useEffect(() => {
     returnBookLink(bookId)
      
   }, [bookId]);
 
-
   const returnBookLink = (returnedBookID) => {
-    console.log('returned book id from FullBook', bookList)
     const returnedBookLink = bookList.find(item => {
-      if (item.id === parseInt(returnedBookID) && item.formats['text/html; charset=utf-8'] || item.formats['text/html']) {
-        return item.formats['text/html; charset=utf-8'] || item.formats['text/html'] 
-        
-        
+      if (item.id === parseInt(returnedBookID)) {
+        return item
       }
     })
-    setBookLink(returnedBookLink.formats['text/html'])
-    // console.log('this is book link', returnedBookLink)
+    let acceptableFormats = returnedBookLink.formats['text/html; charset=utf-8'] || returnedBookLink.formats['text/html'] 
+    setBookLink(acceptableFormats)
+    console.log('this is book link', bookLink)
   }
 
   return (

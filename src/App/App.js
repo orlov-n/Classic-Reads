@@ -20,11 +20,18 @@ const App = () => {
   useEffect(() => {
     getBookList(pageNum).then((response) => {
       console.log('this is response in useEffect', response)
-      // console.log('this is bookList in useEffect', bookList)
-      setBookList(response);
+      const acceptableFormats = response.results.filter(item => {
+       if (item.formats['text/html; charset=utf-8'] !== undefined || item.formats['text/html'] !== undefined) {
+        return item
+       }
+      })
+      // formats['text/html; charset=utf-8'] || item.formats['text/html'] 
+      console.log('accptable formats', acceptableFormats)
+      setBookList(acceptableFormats);
       
     });
     // .catch((err) => {
+      console.log('this is bookList in useEffect', bookList)
     //   setErrorMessage(err)
     //   setErrorStatus(true)
     // })
@@ -72,21 +79,21 @@ const App = () => {
       <WelcomePage />     
       }/>
      
-     {bookList.results && 
+     {bookList.length > 0 && 
      <Route exact path='/book/:book_id' render={(match) => {
       console.log('match from bookID', match)
 
        return (
-         <FullBook bookList={bookList.results} bookId={match.match.params.book_id}  />
+         <FullBook bookList={bookList} bookId={match.match.params.book_id}  />
          )
         }}/>
       }
 
-     {bookList.results && 
+     {bookList.length > 0 && 
       <Route exact path='/page/:page' render={(match) => {
         console.log('match from booklistNum', match)
         return (
-          <BookList bookListProp={bookList.results} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage} refetch={refetch}/>
+          <BookList bookListProp={bookList} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage} refetch={refetch}/>
           
         )
       }}/>

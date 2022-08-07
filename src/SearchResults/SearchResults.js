@@ -10,9 +10,14 @@ export const SearchResults = ({userInput}) => {
   const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
-    searchQuery(userInput).then ( data => {
-console.log('data from search results', data)
-      setSearchResults(data.results)
+    searchQuery(userInput).then ( response => {
+      const acceptableFormats = response.results.filter(item => {
+        if (item.formats['text/html; charset=utf-8'] !== undefined || item.formats['text/html'] !== undefined) {
+         return item
+        }
+       })
+console.log('data from search results', response)
+      setSearchResults(acceptableFormats)
     }
     )
   }, [userInput])
