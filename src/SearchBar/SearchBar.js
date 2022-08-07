@@ -5,8 +5,8 @@ import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
 
 
-export const SearchBar = () => {
-//   const [query, setQuery] = useState('');
+export const SearchBar = ({handleSearch}) => {
+  const [query, setQuery] = useState('');
 
 //   useEffect(() => {
 //     // searchQuery()
@@ -23,12 +23,12 @@ export const SearchBar = () => {
 //   }
 
   return (
-    <form>
-      <input placeholder="Search Here" type='text'></input>
-      {/* <NavLink > */}
-      <button>SUBMIT</button>
-      {/* </NavLink> */}
-    </form>
+    <div>
+      <input onChange={(event) => setQuery(event.target.value)} placeholder="Search Here" type='text'></input>
+      <NavLink to={'/books/search/page/:page'}>
+      <button onClick={() => handleSearch(query)}>SUBMIT</button>
+      </NavLink>
+    </div>
   )
 
 }

@@ -13,6 +13,7 @@ import { SearchResults } from "../SearchResults/SearchResults";
 const App = () => {
   const [bookList, setBookList] = useState({});
   const [pageNum, setPageNum] = useState(1);
+  const [userInput, setUserInput] = useState('');
 
   // const [bookLink, setBookLink] = useState('');
 
@@ -31,6 +32,12 @@ const App = () => {
   
   const increasePage = (currentPage) => {
     setPageNum(() => currentPage + 1)
+
+  }
+
+  const handleSearch = (query) => {
+    console.log('query from app', query)
+    setUserInput(query)
 
   }
 
@@ -58,7 +65,7 @@ const App = () => {
         <NavLink to={'/page/1'}>
           <button>Top Free Books</button>
         </NavLink>
-        <SearchBar />
+        <SearchBar handleSearch={handleSearch}/>
      </nav>
 
      <Route exact path='/' render={() => 
@@ -83,8 +90,18 @@ const App = () => {
           
         )
       }}/>
-    
+      
+
+
   } 
+
+  <Route exact path='/books/search/page/:page' render={() => {
+    return (
+      <SearchResults userInput={userInput}/>
+    )
+  }}>
+
+  </Route>
     </div>
   );
 };

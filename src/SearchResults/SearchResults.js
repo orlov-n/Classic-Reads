@@ -3,21 +3,25 @@ import './SearchResults.css'
 import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
 import { NavLink } from 'react-router-dom';
+import { searchQuery } from '../apiCalls';
 
-export const SearchResults = ({searchResultsProp, returnNextPage}) => {
+export const SearchResults = ({userInput}) => {
   // console.log('this is booklist prop', bookListProp)
   const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
-    renderBookCards()
-    setSearchResults(searchResultsProp)
-  }, [searchResults])
+    searchQuery(userInput).then ( data => {
+// console.log('data from search results', data)
+      setSearchResults(data.results)
+    }
+    )
+  }, [userInput])
 
   const renderBookCards = () => {
     return searchResults.map(bookCard => {
       return (
 
-          <NavLink to={`/${bookCard.id}`}  key={bookCard.id}>
+          <NavLink to={`/book/${bookCard.id}`}  key={bookCard.id}>
             <BookCard bookCardProp={bookCard}  />
           </NavLink>
       )
@@ -31,10 +35,10 @@ export const SearchResults = ({searchResultsProp, returnNextPage}) => {
 return (
   <section className='search-results-container'>
     {/* {console.log('this is booklist from Booklist', bookList)} */}
-   
+   <p>Search Results</p>
     {/* {renderBookCards()} */}
     {searchResults && renderBookCards()}
-    <button onClick={() => returnNextPage()}>Next Page</button>
+    {/* <button onClick={() => returnNextPage()}>Next Page</button> */}
   </section>
 )
 
