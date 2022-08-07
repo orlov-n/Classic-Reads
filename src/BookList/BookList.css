@@ -1,0 +1,10 @@
+.book-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 4rem; */
+  margin-top: 6em;
+  /* position: absolute; */
+}
