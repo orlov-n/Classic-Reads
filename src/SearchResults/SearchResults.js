@@ -12,7 +12,7 @@ export const SearchResults = ({userInput}) => {
   useEffect(() => {
     searchQuery(userInput).then ( response => {
       const acceptableFormats = response.results.filter(item => {
-        if (item.formats['text/html; charset=utf-8'] !== undefined || item.formats['text/html'] !== undefined) {
+        if (item.formats['text/html'] !== undefined) {
          return item
         }
        })
