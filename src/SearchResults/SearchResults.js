@@ -5,7 +5,7 @@ import { FullBook } from '../FullBook/FullBook';
 import { NavLink } from 'react-router-dom';
 import { searchQuery } from '../apiCalls';
 
-export const SearchResults = ({userInput}) => {
+export const SearchResults = ({userInput, setUserSearchResults}) => {
   // console.log('this is booklist prop', bookListProp)
   const [searchResults, setSearchResults] = useState([])
 
@@ -18,6 +18,7 @@ export const SearchResults = ({userInput}) => {
        })
 console.log('data from search results', response)
       setSearchResults(acceptableFormats)
+      setUserSearchResults(acceptableFormats)
     }
     )
   }, [userInput])

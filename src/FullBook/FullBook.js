@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export const FullBook = ({bookList, bookId}) => {
   const [bookLink, setBookLink] = useState('');
-console.log('bookId in full book under use state', bookId)
+console.log('bookId in full book under use state', bookList)
 
   useEffect(() => {
     returnBookLink(bookId)
@@ -12,12 +12,16 @@ console.log('bookId in full book under use state', bookId)
   }, [bookId]);
 
   const returnBookLink = (returnedBookID) => {
+    console.log(bookList.length)
     const returnedBookLink = bookList.find(item => {
+      // console.log(item.id, parseInt(returnedBookID))
       if (item.id === parseInt(returnedBookID)) {
         return item
       }
     })
-    let acceptableFormats = returnedBookLink.formats['text/html'] || returnedBookLink.formats['text/html; charset=utf-8']
+    console.log('returned book link from full book at the top', returnedBookLink)
+    // console.log('type of', typeof returnedBookID)
+    let acceptableFormats = returnedBookLink.formats['text/html']
     setBookLink(acceptableFormats)
     console.log('this is book link', bookLink)
   }

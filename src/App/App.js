@@ -12,13 +12,14 @@ import { SearchResults } from "../SearchResults/SearchResults";
 
 const App = () => {
   const [bookList, setBookList] = useState({});
-  const [pageNum, setPageNum] = useState(1);
+  // const [pageNum, setPageNum] = useState(1);
   const [userInput, setUserInput] = useState('');
+  const [userSearchResults, setUserSearchResults] = useState([]);
 
   // const [bookLink, setBookLink] = useState('');
 
   useEffect(() => {
-    getBookList(pageNum).then((response) => {
+    getBookList().then((response) => {
       console.log('this is response in useEffect', response)
       const acceptableFormats = response.results.filter(item => {
        if (item.formats['text/html'] !== undefined) {
@@ -35,12 +36,13 @@ const App = () => {
     //   setErrorMessage(err)
     //   setErrorStatus(true)
     // })
-  }, [pageNum]);
+  }, []);
   
-  const increasePage = (currentPage) => {
-    setPageNum(() => currentPage + 1)
+  // const increasePage = (currentPage) => {
+  //   setPageNum(() => currentPage + 1)
 
-  }
+  // }
+  
 
   const handleSearch = (query) => {
     console.log('query from app', query)
@@ -48,6 +50,9 @@ const App = () => {
 
   }
 
+  const updateSearchResults = (search) => {
+    setUserSearchResults(search)
+  }
   // const refetch = (currentPage) => {
   //   console.log('curent page', 'page numj', pageNum, currentPage)
   //   if (currentPage > pageNum) {
@@ -84,16 +89,16 @@ const App = () => {
       console.log('match from bookID', match)
 
        return (
-         <FullBook bookList={bookList} bookId={match.match.params.book_id}  />
+        
+         <FullBook bookList={userInput ? userSearchResults : bookList} bookId={match.match.params.book_id}  />
          )
         }}/>
       }
 
      {bookList.length > 0 && 
-      <Route exact path='/page/:page' render={(match) => {
-        console.log('match from booklistNum', match)
+      <Route exact path='/page/:page' render={() => {
         return (
-          <BookList bookListProp={bookList} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage}/>
+          <BookList bookListProp={bookList} />
           
         )
       }}/>
@@ -104,7 +109,7 @@ const App = () => {
 
   <Route exact path='/books/search/results' render={() => {
     return (
-      <SearchResults userInput={userInput}/>
+      <SearchResults userInput={userInput} setUserSearchResults={setUserSearchResults}/>
     )
   }}>
 

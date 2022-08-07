@@ -4,14 +4,14 @@ import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
 import { NavLink } from 'react-router-dom';
 
-const BookList = ({bookListProp, returnNextPage, returnBookLink, bookListNum, increasePage, refetch}) => {
+const BookList = ({bookListProp}) => {
   console.log('this is booklist prop', bookListProp)
   const [bookList, setBookList] = useState([])
 
   useEffect(() => {
     renderBookCards()
     setBookList(bookListProp)
-  }, [bookListProp, bookListNum])
+  }, [bookListProp])
 
   const renderBookCards = () => {
     return bookList.map(bookCard => {
@@ -24,10 +24,7 @@ const BookList = ({bookListProp, returnNextPage, returnBookLink, bookListNum, in
     })
   }
 
-  const openFullBook = () => {
 
-  }
-console.log('booklist Num from booklist', bookListNum)
 return (
   <section className='book-list-container'>
     {/* {console.log('this is booklist from Booklist', bookList)} */}
@@ -35,10 +32,7 @@ return (
     {/* {renderBookCards()} */}
     {bookListProp && renderBookCards()}
     {/* <button onClick={() => returnNextPage()}>Next Page</button> */}
-    <NavLink to={`/page/${parseInt(bookListNum) + 1}`} >
-    <button onClick={() => increasePage(parseInt(bookListNum))}>Next Page</button>
-
-          </NavLink>
+  
   </section>
 )
 
