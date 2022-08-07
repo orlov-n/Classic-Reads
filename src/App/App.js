@@ -23,16 +23,27 @@ const App = () => {
       setBookList(response);
       
     });
-    increasePage()
     // .catch((err) => {
     //   setErrorMessage(err)
     //   setErrorStatus(true)
     // })
   }, [pageNum]);
   
-  const increasePage = () => {
-    setPageNum(() => pageNum + 1)
+  const increasePage = (currentPage) => {
+    setPageNum(() => currentPage + 1)
 
+  }
+
+  const refetch = (currentPage) => {
+    console.log('curent page', 'page numj', pageNum, currentPage)
+    if (currentPage > pageNum) {
+      pageNum = currentPage
+      getBookList(currentPage).then((response) => {
+        // console.log('this is bookList in useEffect', bookList)
+        setBookList(response);
+        
+      });
+    } 
   }
 
   const returnNextPage = () => {};
@@ -68,7 +79,7 @@ const App = () => {
       <Route exact path='/page/:page' render={(match) => {
         console.log('match from booklistNum', match)
         return (
-          <BookList bookListProp={bookList.results} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage}/>
+          <BookList bookListProp={bookList.results} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage} refetch={refetch}/>
           
         )
       }}/>

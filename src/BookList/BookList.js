@@ -4,7 +4,7 @@ import BookCard from '../BookCard/BookCard';
 import { FullBook } from '../FullBook/FullBook';
 import { NavLink } from 'react-router-dom';
 
-const BookList = ({bookListProp, returnNextPage, returnBookLink, bookListNum, increasePage}) => {
+const BookList = ({bookListProp, returnNextPage, returnBookLink, bookListNum, increasePage, refetch}) => {
   console.log('this is booklist prop', bookListProp)
   const [bookList, setBookList] = useState([])
 
@@ -36,7 +36,7 @@ return (
     {bookListProp && renderBookCards()}
     {/* <button onClick={() => returnNextPage()}>Next Page</button> */}
     <NavLink to={`/page/${parseInt(bookListNum) + 1}`} >
-    <button>Next Page</button>
+    <button onClick={() => increasePage(parseInt(bookListNum))}>Next Page</button>
 
           </NavLink>
   </section>
