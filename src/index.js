@@ -3,20 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
-import BookList from './BookList/BookList';
 import { BrowserRouter } from "react-router-dom";
 
-
-
-
-//   const list = document.getElementsByTagName("#document");
-//   list.getElementsByTagName("head").innerHTML = "light";
-
-
-// document.getElementByTagName(meta).style.filter = content="light";
-// let cssChange = document.createElement('style');
-// cssChange.innerHTML= '#meta content="light"'
-// document.selector.appendChild(cssChange );
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
