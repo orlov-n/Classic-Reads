@@ -12,11 +12,10 @@ import { SearchResults } from "../SearchResults/SearchResults";
 
 const App = () => {
   const [bookList, setBookList] = useState({});
-  // const [pageNum, setPageNum] = useState(1);
   const [userInput, setUserInput] = useState('');
   const [userSearchResults, setUserSearchResults] = useState([]);
 
-  // const [bookLink, setBookLink] = useState('');
+  const [bookLink, setBookLink] = useState('');
 
   useEffect(() => {
     getBookList().then((response) => {
@@ -38,11 +37,6 @@ const App = () => {
     // })
   }, []);
   
-  // const increasePage = (currentPage) => {
-  //   setPageNum(() => currentPage + 1)
-
-  // }
-  
 
   const handleSearch = (query) => {
     console.log('query from app', query)
@@ -53,19 +47,7 @@ const App = () => {
   const updateSearchResults = (search) => {
     setUserSearchResults(search)
   }
-  // const refetch = (currentPage) => {
-  //   console.log('curent page', 'page numj', pageNum, currentPage)
-  //   if (currentPage > pageNum) {
-  //     pageNum = currentPage
-  //     getBookList(currentPage).then((response) => {
-  //       // console.log('this is bookList in useEffect', bookList)
-  //       setBookList(response);
-        
-  //     });
-  //   } 
-  // }
 
-  const returnNextPage = () => {};
 
   console.log('this is booklist in App above return', bookList)
   return (
@@ -85,7 +67,7 @@ const App = () => {
       }/>
      
      {bookList.length > 0 && 
-     <Route exact path='/book/:book_id' render={(match) => {
+      <Route exact path='/book/:book_id' render={(match) => {
       console.log('match from bookID', match)
 
        return (

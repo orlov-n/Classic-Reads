@@ -10,7 +10,7 @@ export const WelcomePage = () => {
       <button>Read a RANDOM BOOK</button>
       <button>Search Free Books</button>
 
-      <NavLink to={`/1`} >
+      <NavLink to={`/`} >
       <button>Top Free Books</button>
       </NavLink>
       <embed className='full-book'  src=""></embed>
