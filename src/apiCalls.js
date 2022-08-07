@@ -1,5 +1,5 @@
-const getBookList = () => {
-  return fetch('https://gutendex.com/books')
+const getBookList = (pageNum) => {
+  return fetch(`https://gutendex.com/books/?page=${pageNum}`)
     .then((response) => {
       if (response.ok) {
         // console.log('this is response', response.json())

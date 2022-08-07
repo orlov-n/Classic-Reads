@@ -13,6 +13,7 @@ console.log('bookId in full book', bookList)
 
 
   const returnBookLink = (returnedBookID) => {
+    console.log('returned book id from FullBook', bookList)
     const returnedBookLink = bookList.find(item => {
       if (item.id === parseInt(returnedBookID)) {
         return item.formats['text/html']

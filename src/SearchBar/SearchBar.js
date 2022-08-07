@@ -2,29 +2,33 @@ import React, { useEffect, useState } from "react";
 import './SearchBar.css'
 // import { searchQuery } from './apiCalls'
 import BookCard from "../BookCard/BookCard";
-
-export const SearchBar = ({foundTitles}) => {
-  const [query, setQuery] = useState('');
-
-  useEffect(() => {
-    // searchQuery()
-  })
+import { NavLink } from "react-router-dom";
 
 
+export const SearchBar = () => {
+//   const [query, setQuery] = useState('');
 
-  const renderSearchedCards = () => {
-    return foundTitles.map(bookCard => {
-      return (
-        <BookCard key={bookCard.id} bookCardProp={bookCard} />
-      )
-    })
-  }
+//   useEffect(() => {
+//     // searchQuery()
+//   })
+
+
+
+//   const renderSearchedCards = () => {
+//     return foundTitles.map(bookCard => {
+//       return (
+//         <BookCard key={bookCard.id} bookCardProp={bookCard} />
+//       )
+//     })
+//   }
 
   return (
-    <section>
-      {/* {renderSearchedCards()} */}
-      <h2>I am Search Bar</h2>
-    </section>
+    <form>
+      <input placeholder="Search Here" type='text'></input>
+      {/* <NavLink > */}
+      <button>SUBMIT</button>
+      {/* </NavLink> */}
+    </form>
   )
 
 }
