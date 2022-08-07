@@ -48,17 +48,17 @@ const App = () => {
 
   }
 
-  const refetch = (currentPage) => {
-    console.log('curent page', 'page numj', pageNum, currentPage)
-    if (currentPage > pageNum) {
-      pageNum = currentPage
-      getBookList(currentPage).then((response) => {
-        // console.log('this is bookList in useEffect', bookList)
-        setBookList(response);
+  // const refetch = (currentPage) => {
+  //   console.log('curent page', 'page numj', pageNum, currentPage)
+  //   if (currentPage > pageNum) {
+  //     pageNum = currentPage
+  //     getBookList(currentPage).then((response) => {
+  //       // console.log('this is bookList in useEffect', bookList)
+  //       setBookList(response);
         
-      });
-    } 
-  }
+  //     });
+  //   } 
+  // }
 
   const returnNextPage = () => {};
 
@@ -93,7 +93,7 @@ const App = () => {
       <Route exact path='/page/:page' render={(match) => {
         console.log('match from booklistNum', match)
         return (
-          <BookList bookListProp={bookList} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage} refetch={refetch}/>
+          <BookList bookListProp={bookList} bookListNum={match.match.params.page} returnNextPage={returnNextPage} increasePage={increasePage}/>
           
         )
       }}/>
@@ -102,7 +102,7 @@ const App = () => {
 
   } 
 
-  <Route exact path='/books/search/page/:page' render={() => {
+  <Route exact path='/books/search/results' render={() => {
     return (
       <SearchResults userInput={userInput}/>
     )

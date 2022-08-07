@@ -1,7 +1,7 @@
 import React from 'react';
 import './BookCard.css'
 
-const BookCard = ({bookCardProp}) => {
+const BookCard = ({bookCardProp, returnBookLink }) => {
 
   return (
     <>

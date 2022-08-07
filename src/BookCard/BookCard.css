@@ -47,6 +47,7 @@
     opacity: 0;
     animation: opac 20s infinite linear;
   overflow: hidden;
+    margin-top: -2px;
 
 }
 
@@ -63,7 +64,7 @@
 }
 
 p {
-  padding: 10px 10px 0 10px;
+  /* padding: 10px 10px 0 10px; */
   font-size: 25%;
   overflow: hidden;
 }
@@ -78,7 +79,13 @@ p {
 .pagenext p {
   margin-top: -2px;
   overflow: hidden;
+  padding: 0;
 
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes turnpage {
@@ -92,4 +99,8 @@ p {
   0% { opacity: 0; }
   50% { opacity: 0.2; }
   100% { opacity: 1; }
+}
+
+iframe {
+  height: 55px;
 }

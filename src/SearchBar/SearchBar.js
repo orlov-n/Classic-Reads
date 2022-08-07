@@ -25,7 +25,7 @@ export const SearchBar = ({handleSearch}) => {
   return (
     <div>
       <input onChange={(event) => setQuery(event.target.value)} placeholder="Search Here" type='text'></input>
-      <NavLink to={'/books/search/page/:page'}>
+      <NavLink to={'/books/search/results'}>
       <button onClick={() => handleSearch(query)}>SUBMIT</button>
       </NavLink>
     </div>
