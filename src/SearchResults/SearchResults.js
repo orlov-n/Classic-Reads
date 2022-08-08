@@ -10,7 +10,7 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
   useEffect(() => {
     searchQuery(userInput).then((response) => {
       const acceptableFormats = response.results.filter((item) => {
-        if (item.formats["text/html"] !== undefined) {
+        if (item.formats["text/html"]) {
           return item;
         }
       });

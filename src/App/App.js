@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     getBookList().then((response) => {
       const acceptableFormats = response.results.filter((item) => {
-        if (item.formats["text/html"] !== undefined) {
+        if (item.formats["text/html"]) {
           return item;
         }
       });
