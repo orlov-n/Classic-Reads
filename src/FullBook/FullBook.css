@@ -8,8 +8,15 @@
   transform: translateX(-50%);
   margin-top: 14rem;
   margin-bottom: 11rem;
+  /* margin-left: -6em;
+  margin-right: -6em; */
   /* height: 75rem; */
 }
+/* 
+.full-book {
+  height: 94vh;
+  width: 94vw;
+} */
 
 embed {
   /* height: 55rem; */
@@ -20,3 +27,11 @@ embed {
   min-width: 320px;
   /* width: 94vw; */
 }
+/* iframe > body {
+  height: 75rem;
+  width: 80%;
+  min-width: 320px;
+  color: red;
+  
+  width: 94vw;
+} */
