@@ -22,10 +22,6 @@ const App = () => {
       });
       setBookList(acceptableFormats);
     });
-    // .catch((err) => {
-    //   setErrorMessage(err)
-    //   setErrorStatus(true)
-    // })
   }, []);
 
   const handleSearch = (query) => {
@@ -88,10 +84,3 @@ const App = () => {
 };
 
 export default App;
-
-// By the design of the site the user actions are restricted by what the site can handle:
-// The user can refresh at any URL and site won't break.
-// Can type anything they want into the search and it will give valid searchr results without breaking the site.
-// The user can click on any book and view any book.
-// The only books that will return can be viewd on the site.
-//

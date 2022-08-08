@@ -11,7 +11,6 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
   useEffect(() => {
     searchQuery(userInput).then((response) => {
       setLoading(false)
-
       const acceptableFormats = response.results.filter((item) => {
         if (item.formats["text/html"]) {
           return item;
@@ -20,7 +19,6 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
    
       setSearchResults(acceptableFormats);
       setUserSearchResults(acceptableFormats);
-
     });
   }, [userInput]);
 
@@ -35,7 +33,6 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
   };
 
   return (
-
     <section className="search-results-container">
       {loading && <h2>Loading...</h2>}
       {(!loading && !searchResults.length) && <h2>Your Query Did Not Return Any Results, Please Use Different Search Terms</h2> }

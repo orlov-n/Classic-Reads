@@ -9,28 +9,39 @@ describe('Welcome Page', () => {
     cy.get('h1').contains('Read Now')
   })
 
-it('Should have a "Top Free Books" button', () => {
-  cy.get()
-})
 
-it('Should have a search bar', () => {
-  cy.get()
-})
+// it.only('Should be able to navigate to a Welcome page', () => {
+//   cy.get('h1').click()
+//   cy.url().should('eq', 'http://localhost:3000/')
+// })
 
-cy.get()
-})
+  //Should be able to click on a title
 
-it('Should be able to type into the field', () => {
-  cy.get()
-})
 
-it('Should be able to click a SUBMIT button', () => {
-  cy.get()
-})
+// it('Should have a "Top Free Books" button', () => {
+//   cy.get()
+// })
 
-it('Should have a welcome message', () => {
+// it('Should have a search bar', () => {
+//   cy.get()
+// })
 
-})
+// cy.get()
+// })
+
+// it('Should be able to type into the field', () => {
+//   cy.get()
+// })
+
+// it('Should be able to click a SUBMIT button', () => {
+//   cy.get()
+// })
+
+// it('Should have a welcome message', () => {
+
+// })
 
 // Should be able to use back button
 // Should be able to use forward button
+
+})

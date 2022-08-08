@@ -1,7 +1,7 @@
 const getBookList = () => {
   return fetch(
-    `https://gutendex.com/books/?copyright=false&languages=en&page=1`
-  ).then((response) => {
+    `https://gutendex.com/books/?copyright=false&languages=en&page=1`) 
+    .then((response) => {
     if (response.ok) {
       return response.json();
     }

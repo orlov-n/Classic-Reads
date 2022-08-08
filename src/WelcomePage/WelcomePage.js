@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export const WelcomePage = () => {
   return (
     <section className="welcome-page-container">
-      <h2> WELCOME </h2>
+      <h2>WELCOME</h2>
       <embed className="full-book" src=""></embed>
     </section>
   );

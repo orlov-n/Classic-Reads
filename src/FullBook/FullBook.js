@@ -5,17 +5,12 @@ import { getBook } from "../apiCalls";
 import PropTypes from 'prop-types';
 
 export const FullBook = ({ bookId }) => {
-  console.log(bookId)
   const [bookLink, setBookLink] = useState("");
 
   useEffect(() => {
     getBook(bookId).then((response) => {
       setBookLink(response.formats["text/html"]);
     });
-    // .catch((err) => {
-    //   setErrorMessage(err)
-    //   setErrorStatus(true)
-    // })
   }, [bookId]);
 
   return (

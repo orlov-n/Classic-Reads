@@ -1,12 +1,19 @@
 describe('Search Results Page', () => {
   beforeEach (() => {
-    cy.intercept('GET', `https://gutendex.com/books/?copyright=false&languages=en&search=turing`, {fixture: 'searchResults'})
+    cy.intercept('GET', `https://gutendex.com/books/?copyright=false&languages=en&search=`, {fixture: 'searchResults'})
     cy.visit('http://localhost:3000/books/search/results')
+  })
+
+  it('Should have a title', () => {
+    cy.get('h1').contains('Read Now')
   })
 })
 
+// it('Should confirm that true is equal to true', () => {
+//   expect(true).to.equal(true);
+// });
 
-
+ 
 // All standard tests
 
 
