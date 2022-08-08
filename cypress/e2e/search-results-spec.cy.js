@@ -8,7 +8,7 @@ describe('Search Results Page', () => {
     cy.get('h1').contains('Read Now')
   })
 
-  it('Should be able to navigate to the Welcome page', () => {
+  it('Should be able to navigate to the home page', () => {
     cy.get('h1').click()
     cy.url().should('eq', 'http://localhost:3000/')
   })

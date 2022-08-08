@@ -11,31 +11,10 @@ describe('Welcome Page', () => {
   })
 
 
-
-
-
-// it('Should have a "Top Free Books" button', () => {
-//   cy.get()
-// })
-
-// it('Should have a search bar', () => {
-//   cy.get()
-// })
-
-// cy.get()
-// })
-
-// it('Should be able to type into the field', () => {
-//   cy.get()
-// })
-
-// it('Should be able to click a SUBMIT button', () => {
-//   cy.get()
-// })
-
 // it('Should have a welcome message', () => {
 
 // })
+
 
 
 

@@ -15,19 +15,12 @@ describe('Full Book', () => {
     cy.scrollTo('bottom').window('.full-book').its('scrollY').should('not.equal', 0)
   })
 
-  it('Should be able to navigate to the Welcome page', () => {
+  it('Should be able to navigate to the home page', () => {
     cy.get('h1').click()
     cy.url().should('eq', 'http://localhost:3000/')
   })
 
   
 
-
-  // it('Should be able to click on the title to go home', () => {
-  //   cy.get()
-  // })
-
-// Should be able to use back button
-// Should be able to use forward button
 
 })
