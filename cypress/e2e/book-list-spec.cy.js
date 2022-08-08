@@ -8,31 +8,45 @@ describe('Popular Book List Page', () => {
     cy.get('h1').contains('Read Now')
   })
 
+  
+  it('Should be able to navigate to a Welcome page', () => {
+    cy.get('h1').click()
+    cy.url().should('eq', 'http://localhost:3000/')
+  })
+
+
+  it('Should have page displaying most popular books.', () => {
+    cy.get('.book-list-container').find('.book').should('have.length', 5)
+  })
+
+it('Should be able to navigate with browsers\'s back and forward buttons.', () => {
+  cy.visit('http://localhost:3000/')
+  cy.go('back')
+  cy.url().should('eq', 'http://localhost:3000/page/1')
+  cy.get('.book').first().should('contain.text', 'Pride and Prejudice')
+  cy.go('forward')
+  cy.url().should('eq', 'http://localhost:3000/')
 })
 
 
-// it.only('Should be able to navigate to a Welcome page', () => {
-//   cy.get('h1').click()
-//   cy.url().should('eq', 'http://localhost:3000/')
-// })
+cy.get('[href="/book/1342"] > .book')
+
+
+
+
+
+
+
+})
+
+
+  //Should be able to click on a title
+  // revisit test to add data sample after fixture is added.
 
 // Should be able to use back button
 // Should be able to use forward button
 // Should have list of 5 books
 // Should be able to click on a book and be taken to it
-// it.skip('Should confirm that true is equal to true', () => {
-//   expect(true).to.equal(true);
-// });
-
-  
-// it.only('Should have a title', () => {
-//   cy.get('h1').contains('Read Now')
-// })
-
-// it('Should be able to navigate to a Welcome page', () => {
-//   cy.get('h1').click()
-//   cy.url().should('eq', 'localhost:3000')
-// })
 
 // it.skip('Should be able to go directly to Welcome Page', () => {
 //   cy.get('button')

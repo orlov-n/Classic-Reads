@@ -7,16 +7,22 @@ describe('Search Results Page', () => {
   it('Should have a title', () => {
     cy.get('h1').contains('Read Now')
   })
+
+  it('Should be able to navigate to the Welcome page', () => {
+    cy.get('h1').click()
+    cy.url().should('eq', 'http://localhost:3000/')
+  })
+
+
+  
 })
 
-// it('Should confirm that true is equal to true', () => {
-//   expect(true).to.equal(true);
-// });
 
  
 // All standard tests
 
-
+// Should be able to use back button
+// Should be able to use forward button
 // Should have loading button show up when fetching
 // Should see a message when entering bad request "Your Query Did Not Return Any Results, Please Use Different Search Terms"
 // Should be able to see 4 books

@@ -5,17 +5,13 @@ describe('Welcome Page', () => {
   })
 
   
+
   it('Should have a title', () => {
     cy.get('h1').contains('Read Now')
   })
 
 
-// it.only('Should be able to navigate to a Welcome page', () => {
-//   cy.get('h1').click()
-//   cy.url().should('eq', 'http://localhost:3000/')
-// })
 
-  //Should be able to click on a title
 
 
 // it('Should have a "Top Free Books" button', () => {
@@ -41,7 +37,6 @@ describe('Welcome Page', () => {
 
 // })
 
-// Should be able to use back button
-// Should be able to use forward button
+
 
 })
