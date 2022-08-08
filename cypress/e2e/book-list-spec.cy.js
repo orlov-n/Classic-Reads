@@ -11,10 +11,6 @@ describe('Popular Book List Page', () => {
 })
 
 
-//  it('Should confirm that true is equal to true', () => {
-//     expect(true).to.equal(true);
-//   });
-
 // it.only('Should be able to navigate to a Welcome page', () => {
 //   cy.get('h1').click()
 //   cy.url().should('eq', 'http://localhost:3000/')

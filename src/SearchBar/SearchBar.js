@@ -5,15 +5,19 @@ import { NavLink } from "react-router-dom";
 export const SearchBar = ({ handleSearch }) => {
   const [query, setQuery] = useState("");
   const [reset, setReset] = useState('')
+  const [buttonDisabled, setButtonDisabled] = useState(true)
+
 
   const onSubmit = () => {
     handleSearch(query)
     setReset('')
+    setButtonDisabled(true)
   }
 
   const updateSearchField = (event) => {
     setQuery(event)
     setReset(event)
+    setButtonDisabled(false)
   }
 
   return (
@@ -26,7 +30,7 @@ export const SearchBar = ({ handleSearch }) => {
         
       </input>
       <NavLink to={"/books/search/results"}>
-        <button onClick={() => onSubmit()}>SUBMIT</button>
+        <button className='search-button' onClick={() => onSubmit()} disabled={buttonDisabled}>SUBMIT</button>
       </NavLink>
     </div>
   );
