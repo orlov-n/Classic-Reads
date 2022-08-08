@@ -31,8 +31,7 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
 
   return (
     <section className="search-results-container">
-      <p>Search Results</p>
-      {searchResults && renderBookCards()}
+      {searchResults.length ? renderBookCards() : <h2>Your Query Did Not Return Any Results, Please Use Different Search Terms</h2>}
     </section>
   );
 };

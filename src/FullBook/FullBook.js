@@ -2,8 +2,9 @@ import React from "react";
 import "./FullBook.css";
 import { useState, useEffect } from "react";
 import { getBook } from "../apiCalls";
+import PropTypes from 'prop-types';
 
-export const FullBook = ({ bookList, bookId }) => {
+export const FullBook = ({ bookId }) => {
   const [bookLink, setBookLink] = useState("");
 
   useEffect(() => {
@@ -24,3 +25,7 @@ export const FullBook = ({ bookList, bookId }) => {
 };
 
 export default FullBook;
+
+FullBook.propTypes = {
+  bookId: PropTypes.string
+};
