@@ -5,6 +5,7 @@ import { getBook } from "../apiCalls";
 import PropTypes from 'prop-types';
 
 export const FullBook = ({ bookId }) => {
+  console.log(bookId)
   const [bookLink, setBookLink] = useState("");
 
   useEffect(() => {
