@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
 import "./NavBar.css";
-import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
+import PropTypes from 'prop-types';
+
 
 export const NavBar = ({ handleSearch }) => {
   
@@ -20,6 +20,8 @@ return (
 
 )
 
-
-
 }
+NavBar.propTypes = {
+  handleSearch: PropTypes.func.isRequired
+};
+

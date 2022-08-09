@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 export const SearchBar = ({ handleSearch }) => {
   const [query, setQuery] = useState("");
@@ -34,4 +36,8 @@ export const SearchBar = ({ handleSearch }) => {
       </NavLink>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  handleSearch: PropTypes.func.isRequired
 };

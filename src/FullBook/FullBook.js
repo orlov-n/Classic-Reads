@@ -23,5 +23,6 @@ export const FullBook = ({ bookId }) => {
 export default FullBook;
 
 FullBook.propTypes = {
-  bookId: PropTypes.string
+  bookId: PropTypes.string.isRequired
 };
+

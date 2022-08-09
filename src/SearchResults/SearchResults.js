@@ -3,6 +3,7 @@ import "./SearchResults.css";
 import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
 import { searchQuery } from "../apiCalls";
+import PropTypes from 'prop-types';
 
 export const SearchResults = ({ userInput, setUserSearchResults }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -39,4 +40,10 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
       {searchResults && renderBookCards()}
     </section>
   );
+};
+
+
+SearchResults.propTypes = {
+  userInput: PropTypes.string.isRequired,
+  setUserSearchResults: PropTypes.func.isRequired
 };
