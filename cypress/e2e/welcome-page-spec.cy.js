@@ -1,15 +1,13 @@
 describe('Welcome Page', () => {
   beforeEach (() => {
-    cy.intercept('GET', `https://gutendex.com/books/?copyright=false&languages=en&page=1`)
+    cy.intercept('GET', `https://gutendex.com/books`)
     cy.visit('http://localhost:3000/')
   })
 
-  
   it('Should have a navbar', () => {
     cy.visit('http://localhost:3000')
     cy.get('nav').should('be.visible')
   })
-
 
   it('Should have a header', () => {
     cy.get('h1').contains('Read Now')
@@ -28,12 +26,11 @@ describe('Welcome Page', () => {
     .should('eq', 'http://localhost:3000/page/1')
   })
 
-
 it('Should be able to navigate with browsers\'s back and forward buttons.', () => {
   cy.visit('http://localhost:3000/page/1')
+  cy.get('.book').first().should('contain.text', 'Pride and Prejudice')
   cy.go('back')
   cy.url().should('eq', 'http://localhost:3000/')
-  cy.get('.book').first().should('contain.text', 'Pride and Prejudice')
   cy.go('forward')
   cy.url().should('eq', 'http://localhost:3000/page/1')
   })

@@ -9,12 +9,10 @@ describe('Search Results Page', () => {
     cy.get('nav').should('be.visible')
   })
 
-
   it('Should have a header', () => {
     cy.get('h1').contains('Read Now')
   })
 
- 
 it('Should be able to go directly to home page', () => {
   cy.get('h1')
   .should('have.text', 'Read Now')
@@ -23,15 +21,9 @@ it('Should be able to go directly to home page', () => {
   .should('eq', 'http://localhost:3000/')
 })
 
-it('Should have a "Top Free Books" button', () => {
-  cy.get('[href="/page/1"] > button')
-  })
-
-
   it('Should be able to display searched books.', () => {
     cy.get('.search-results-container').find('.book').should('have.length', 4)
   })
-
 
 it('Should be able to go directly to Top Free Books page', () => {
   cy.get('[href="/page/1"]')
@@ -40,7 +32,6 @@ it('Should be able to go directly to Top Free Books page', () => {
   cy.url()
   .should('eq',  'http://localhost:3000/page/1')
 })
-
 
 it('Should be able to navigate with browsers\'s back and forward buttons.', () => {
 cy.visit('http://localhost:3000/')
@@ -51,16 +42,9 @@ cy.go('forward')
 cy.url().should('eq', 'http://localhost:3000/')
 })
 
-
-it('Should be able to click on a first book and be redirected to it', () => {
-cy.get(cy.get('[href="/book/30293"]'))
-})
-
-
 it('Should have a search bar', () => {
 cy.get('input')
 })
-
 
 it('Should be able to type into the field', () => {
 cy.get('input').type('Turing')
