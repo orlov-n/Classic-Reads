@@ -1,11 +1,8 @@
-* {
-  border: rgb(141, 141, 242) solid 1.5px;
-  background-color: #e9dfcc;
-}
 
 main {
   display:flex;
  justify-content: center;
   min-width: 320px;
+  background-color: #e9dfcc; 
 
 }
