@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./BookList.css";
 import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types'
+
 
 const BookList = ({ bookListProp }) => {
   const [bookList, setBookList] = useState([]);
@@ -27,5 +29,10 @@ const BookList = ({ bookListProp }) => {
     </section>
   );
 };
+
+
+BookList.propTypes = {
+  bookListProp: PropTypes.array.isRequired
+}
 
 export default BookList;

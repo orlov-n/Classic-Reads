@@ -3,17 +3,21 @@ import "./SearchResults.css";
 import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
 import { searchQuery } from "../apiCalls";
+import PropTypes from 'prop-types';
 
 export const SearchResults = ({ userInput, setUserSearchResults }) => {
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     searchQuery(userInput).then((response) => {
+      setLoading(false)
       const acceptableFormats = response.results.filter((item) => {
-        if (item.formats["text/html"] !== undefined) {
+        if (item.formats["text/html"]) {
           return item;
         }
       });
+   
       setSearchResults(acceptableFormats);
       setUserSearchResults(acceptableFormats);
     });
@@ -31,8 +35,15 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
 
   return (
     <section className="search-results-container">
-      <p>Search Results</p>
+      {loading && <h2>Loading...</h2>}
+      {(!loading && !searchResults.length) && <h2>Your Query Did Not Return Any Results, Please Use Different Search Terms</h2> }
       {searchResults && renderBookCards()}
     </section>
   );
+};
+
+
+SearchResults.propTypes = {
+  userInput: PropTypes.string.isRequired,
+  setUserSearchResults: PropTypes.func.isRequired
 };

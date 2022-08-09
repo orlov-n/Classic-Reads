@@ -1,7 +1,7 @@
 const getBookList = () => {
   return fetch(
-    `https://gutendex.com/books/?copyright=false&languages=en&page=1`
-  ).then((response) => {
+    `https://gutendex.com/books/?copyright=false&languages=en&page=1`) 
+    .then((response) => {
     if (response.ok) {
       return response.json();
     }
@@ -11,8 +11,8 @@ const getBookList = () => {
 
 const searchQuery = (query) => {
   return fetch(
-    `https://gutendex.com/books/?copyright=false&languages=en&search=${query}`
-  ).then((response) => {
+    `https://gutendex.com/books/?copyright=false&languages=en&search=${query}`)
+    .then((response) => {
     if (response.ok) {
       return response.json();
     }
@@ -20,7 +20,8 @@ const searchQuery = (query) => {
   });
 };
 const getBook = (bookId) => {
-  return fetch(`https://gutendex.com/books/${bookId}`).then((response) => {
+  return fetch(`https://gutendex.com/books/${bookId}`)
+  .then((response) => {
     if (response.ok) {
       return response.json();
     }

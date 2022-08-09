@@ -2,18 +2,15 @@ import React from "react";
 import "./FullBook.css";
 import { useState, useEffect } from "react";
 import { getBook } from "../apiCalls";
+import PropTypes from 'prop-types';
 
-export const FullBook = ({ bookList, bookId }) => {
+export const FullBook = ({ bookId }) => {
   const [bookLink, setBookLink] = useState("");
 
   useEffect(() => {
     getBook(bookId).then((response) => {
       setBookLink(response.formats["text/html"]);
     });
-    // .catch((err) => {
-    //   setErrorMessage(err)
-    //   setErrorStatus(true)
-    // })
   }, [bookId]);
 
   return (
@@ -24,3 +21,8 @@ export const FullBook = ({ bookList, bookId }) => {
 };
 
 export default FullBook;
+
+FullBook.propTypes = {
+  bookId: PropTypes.string.isRequired
+};
+

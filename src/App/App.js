@@ -7,7 +7,7 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import FullBook from "../FullBook/FullBook";
 import { WelcomePage } from "../WelcomePage/WelcomePage";
 import { SearchResults } from "../SearchResults/SearchResults";
-
+import { NavBar } from "../NavBar/NavBar";
 const App = () => {
   const [bookList, setBookList] = useState({});
   const [userInput, setUserInput] = useState("");
@@ -16,16 +16,12 @@ const App = () => {
   useEffect(() => {
     getBookList().then((response) => {
       const acceptableFormats = response.results.filter((item) => {
-        if (item.formats["text/html"] !== undefined) {
+        if (item.formats["text/html"]) {
           return item;
         }
       });
       setBookList(acceptableFormats);
     });
-    // .catch((err) => {
-    //   setErrorMessage(err)
-    //   setErrorStatus(true)
-    // })
   }, []);
 
   const handleSearch = (query) => {
@@ -33,23 +29,14 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <nav>
-        <NavLink to={"/"}>
-          <h1>Read Now</h1>
-        </NavLink>
-        <NavLink to={"/page/1"}>
-          <button>Top Free Books</button>
-        </NavLink>
-        <SearchBar handleSearch={handleSearch} />
-      </nav>
-
+    <>
+      <NavBar handleSearch={handleSearch}/>
+      <main>
+        
       <Route exact path="/" render={() => <WelcomePage />} />
-
       {bookList.length > 0 && (
         <Route
-          exact
-          path="/book/:book_id"
+          exact path="/book/:book_id"
           render={(match) => {
             return (
               <FullBook
@@ -63,8 +50,8 @@ const App = () => {
 
       {bookList.length > 0 && (
         <Route
-          exact
-          path="/page/:page"
+          
+         exact path="/page/:page"
           render={() => {
             return <BookList bookListProp={bookList} />;
           }}
@@ -83,7 +70,9 @@ const App = () => {
           );
         }}>
       </Route>
-    </div>
+      </main>
+
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./BookCard.css";
+import PropTypes from 'prop-types'
 
 const BookCard = ({ bookCardProp }) => {
   return (
@@ -20,5 +21,10 @@ const BookCard = ({ bookCardProp }) => {
     </>
   );
 };
+
+
+BookCard.propTypes = {
+  bookCardProp: PropTypes.object.isRequired
+}
 
 export default BookCard;
