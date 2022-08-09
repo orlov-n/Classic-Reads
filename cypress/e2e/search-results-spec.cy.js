@@ -18,11 +18,7 @@ describe('Search Results Page', () => {
 })
 
 
- 
-// All standard tests
 
-// Should be able to use back button
-// Should be able to use forward button
 // Should have loading button show up when fetching
 // Should see a message when entering bad request "Your Query Did Not Return Any Results, Please Use Different Search Terms"
 // Should be able to see 4 books

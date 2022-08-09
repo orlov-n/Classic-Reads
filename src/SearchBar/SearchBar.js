@@ -21,14 +21,14 @@ export const SearchBar = ({ handleSearch }) => {
   }
 
   return (
-    <div>
+    <div className="search-bar-container">
       <input
         onChange={(event) => updateSearchField(event.target.value)}
         placeholder="Search Here"
         type="text"
         value={reset}>
-        
       </input>
+
       <NavLink to={"/books/search/results"}>
         <button className='search-button' onClick={() => onSubmit()} disabled={buttonDisabled}>SUBMIT</button>
       </NavLink>

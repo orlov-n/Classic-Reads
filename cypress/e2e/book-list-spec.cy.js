@@ -9,16 +9,34 @@ describe('Popular Book List Page', () => {
       cy.visit('http://localhost:3000')
       cy.get('nav').should('be.visible')
     })
+
+    
   it('Should have a header', () => {
     cy.get('h1').contains('Read Now')
   })
 
   
-  it('Should be able to navigate to a home page', () => {
-    cy.get('h1').click()
-    cy.url().should('eq', 'http://localhost:3000/')
+  // it('Should be able to navigate to a home page', () => {
+  //   cy.get('h1').click()
+  //   cy.url().should('eq', 'http://localhost:3000/')
+  // })
+
+  it('Should be able to go directly to home page', () => {
+    cy.get('h1')
+    .should('have.text', 'Read Now')
+    .click()
+    cy.url()
+    .should('eq', 'http://localhost:3000/')
   })
 
+  it('Should be able to go directly to Top Free Books page', () => {
+    cy.get('h1')
+    .should('have.text', 'Read Now')
+    .click()
+    cy.url()
+    .should('eq', 'http://localhost:3000/')
+  })
+  
 
   it('Should have page displaying most popular books.', () => {
     cy.get('.book-list-container').find('.book').should('have.length', 5)
@@ -53,6 +71,11 @@ it('Should be able to click a SUBMIT button', () => {
   cy.get('.search-button')
 })
 
+it('Should be able to click a SUBMIT button', () => {
+  cy.get('.search-button')
+})
+
+
 
 it('Should have a "Top Free Books" button', () => {
   cy.get('[href="/page/1"] > button')
@@ -60,13 +83,6 @@ it('Should have a "Top Free Books" button', () => {
 
 
 
-it('Should be able to go directly to Welcome Page', () => {
-  cy.get('h1')
-  .should('have.text', 'Read Now')
-  .click()
-  cy.url()
-  .should('eq', 'http://localhost:3000/')
-})
 
 
 })
