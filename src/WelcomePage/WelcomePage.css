@@ -1,7 +1,9 @@
 .welcome-page-container {
+  display: flex;
+  justify-content: center;
    height: 55rem;
    width: 66rem;
-   font-size: 8rem;
+   font-size: 4rem;
    margin: 0;
   /* display: inline-block; */
   /* vertical-align: middle;
@@ -12,11 +14,11 @@
   /* margin-bottom: 11rem; */
   /* height: 75rem; */
 }
-.welcome-page-container > h2{
+/* .welcome-page-container > h2{
    height: 55rem;
    width: 66rem;
-   font-size: 8rem;
-   margin: 0;
+   font-size: 6rem;
+   margin: 0; */
   /* display: inline-block; */
   /* vertical-align: middle;
   position: relative;  */
@@ -25,7 +27,7 @@
   /* margin-top: 14rem; */
   /* margin-bottom: 11rem; */
   /* height: 75rem; */
-}
+/* } */
 
 
 

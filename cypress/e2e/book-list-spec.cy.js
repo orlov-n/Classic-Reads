@@ -6,20 +6,19 @@ describe('Popular Book List Page', () => {
 
 
    it('Should have a navbar', () => {
-      cy.visit('http://localhost:3000')
       cy.get('nav').should('be.visible')
     })
 
-    
+
   it('Should have a header', () => {
     cy.get('h1').contains('Read Now')
   })
 
   
-  // it('Should be able to navigate to a home page', () => {
-  //   cy.get('h1').click()
-  //   cy.url().should('eq', 'http://localhost:3000/')
-  // })
+  it('Should be able to navigate to a home page', () => {
+    cy.get('h1').click()
+    cy.url().should('eq', 'http://localhost:3000/')
+  })
 
   it('Should be able to go directly to home page', () => {
     cy.get('h1')
@@ -71,9 +70,6 @@ it('Should be able to click a SUBMIT button', () => {
   cy.get('.search-button')
 })
 
-it('Should be able to click a SUBMIT button', () => {
-  cy.get('.search-button')
-})
 
 
 
@@ -83,16 +79,7 @@ it('Should have a "Top Free Books" button', () => {
 
 
 
-
-
 })
-
-
-  
-// it('Should be able to click on a movie card and be redirected to the movie info page', (() => {
-//   cy.get('.card-container').eq(0).click();
-//   cy.url().should('eq', 'http://localhost:3000/694919');
-// }));
 
 
 
