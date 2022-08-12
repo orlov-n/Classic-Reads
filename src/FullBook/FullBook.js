@@ -2,7 +2,7 @@ import React from "react";
 import "./FullBook.css";
 import { useState, useEffect } from "react";
 import { getBook } from "../apiCalls";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export const FullBook = ({ bookId }) => {
   const [bookLink, setBookLink] = useState("");
@@ -23,6 +23,5 @@ export const FullBook = ({ bookId }) => {
 export default FullBook;
 
 FullBook.propTypes = {
-  bookId: PropTypes.string.isRequired
+  bookId: PropTypes.string.isRequired,
 };
-

@@ -12,9 +12,21 @@ const App = () => {
   const [bookList, setBookList] = useState({});
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
-
+  const [booklistId, setBookListId] = useState(1)
   useEffect(() => {
-    getBookList().then((response) => {
+   refreshBooklist()
+    // goToNextPage(booklistId)
+  }, [booklistId]);
+
+  const goToNextPage = (id) => {
+    setBookListId(id)
+    
+  }
+
+  const refreshBooklist = () => {
+    getBookList(booklistId).then((response) => {
+      console.log(response)
+      console.log('booklistId in useEffect', booklistId)
       const acceptableFormats = response.results.filter((item) => {
         if (item.formats["text/html"]) {
           return item;
@@ -22,13 +34,15 @@ const App = () => {
       });
       setBookList(acceptableFormats);
     });
-  }, []);
+  }
 
   const handleSearch = (query) => {
     setUserInput(query);
   };
 
+    console.log('bookListId from app above return', booklistId)
   return (
+    
     <>
       <NavBar handleSearch={handleSearch}/>
       <main>
@@ -51,16 +65,17 @@ const App = () => {
       {bookList.length > 0 && (
         <Route
           
-         exact path="/page/:page"
-          render={() => {
-            return <BookList bookListProp={bookList} />;
+         exact path="/page/:page_id"
+          render={(match) => {
+            console.log('booklist match in app', match)
+            return <BookList bookListProp={bookList} pageId={parseInt(match.match.params.page_id)} goToNextPage={goToNextPage}/>;
+            // return <BookList bookListProp={bookList} pageId={booklistId} goToNextPage={goToNextPage}/>;
           }}
         />
       )}
 
       <Route
-        exact
-        path="/books/search/results"
+        exact path="/books/search/results"
         render={() => {
           return (
             <SearchResults
