@@ -20,10 +20,11 @@ const App = () => {
 
   const goToNextPage = (id) => {
     setBookListId(id)
-    
+    // refreshBooklist()
   }
 
-  const refreshBooklist = () => {
+  const refreshBooklist = (id) => {
+    
     getBookList(booklistId).then((response) => {
       console.log(response)
       console.log('booklistId in useEffect', booklistId)
@@ -68,7 +69,7 @@ const App = () => {
          exact path="/page/:page_id"
           render={(match) => {
             console.log('booklist match in app', match)
-            return <BookList bookListProp={bookList} pageId={parseInt(match.match.params.page_id)} goToNextPage={goToNextPage}/>;
+            return <BookList bookListProp={bookList} refreshBooklist={refreshBooklist} pageId={parseInt(match.match.params.page_id)} goToNextPage={goToNextPage}/>;
             // return <BookList bookListProp={bookList} pageId={booklistId} goToNextPage={goToNextPage}/>;
           }}
         />

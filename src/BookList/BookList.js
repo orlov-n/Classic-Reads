@@ -5,12 +5,13 @@ import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 
-const BookList = ({ bookListProp, pageId, goToNextPage }) => {
+const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
 
   const [bookList, setBookList] = useState([]);
 
   useEffect(() => {
     goToNextPage(pageId)
+    // refreshBooklist(pageId)
     renderBookCards();
     setBookList(bookListProp);
   }, [bookListProp, pageId]);
