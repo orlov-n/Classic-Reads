@@ -10,15 +10,15 @@ const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
   const [bookList, setBookList] = useState([]);
 
   useEffect(() => {
-    goToNextPage(pageId)
+    // goToNextPage(pageId)
     // refreshBooklist(pageId)
     renderBookCards();
     setBookList(bookListProp);
-  }, [bookListProp, pageId]);
+  }, [bookListProp]);
 
   const renderBookCards = () => {
     return bookList.map((bookCard) => {
-      console.log('this is page id from booklist', pageId)
+      // console.log('this is page id from booklist', pageId)
       return (
         <NavLink to={`/book/${bookCard.id}`} key={bookCard.id}>
           <BookCard bookCardProp={bookCard} />
@@ -26,7 +26,7 @@ const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
       );
     });
   };
-  console.log('this is page id from booklist above return', pageId)
+  // console.log('this is page id from booklist above return', pageId)
 
   return (
     <section className="book-list-container">
