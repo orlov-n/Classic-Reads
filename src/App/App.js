@@ -14,12 +14,13 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
   const [booklistId, setBookListId] = useState(1);
+  // const [locationId, setLocationId] = useState(1)
   useEffect(() => {
-    console.log('this is booklist id under useeffect app', booklistId)
+    // console.log('this is booklist id under useeffect app', booklistId)
     refreshBooklist();
     // MyComponent()
     // goToNextPage(booklistId)
-    console.log("this is booklist id under refreshbooklist in app", booklistId);
+    // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId]);
 
   const goToNextPage = (id) => {
@@ -42,12 +43,42 @@ const App = () => {
 
   const MyComponent = () => {
     const location = useLocation();
-    let parsedInt2 = location.pathname.split('/')
-    let last = parseInt(parsedInt2.pop())
-    booklistId !== last &&
-    setBookListId(last) 
-    console.log('booklistId wit last', booklistId)
+    let locationIdString;
+    let locationIdNumber;
+    console.log('location', location)
+    console.log('booklist ID', booklistId)
+
+    if(location.pathname === '/') {
+      // location.pathname = "/1"
+      // setBookList(1)
+      // refreshBooklist()
+      
+      return
+    }  else {
+      
+      // booklistId !== locationIdNumber ?
+          locationIdString = location.pathname.split('/')
+          locationIdNumber = parseInt(locationIdString.pop())
+           booklistId !== locationIdNumber &&
+            setBookListId(locationIdNumber)
+
+          }
+          // return
+          // booklistId !== locationIdNumber &&
+
+    
+
+    // location.pathname === '/' ? setBookList(1)  :
+
+
+    // setLocationId(locationIdNumber)
+    // setBookListId(locationIdNumber)
+    // console.log('booklistId wit last', booklistId)
+    // refreshBooklist();
+    
+    // console.log('booklistId wit last', booklistId)
     // return <span>Path is: {location.pathname}</span>;
+     
   };
 
   const handleSearch = (query) => {
@@ -81,22 +112,22 @@ const App = () => {
 
         {bookList.length > 0 && (
           <Route
-            exact
-            path="/page/:page_id"
-            render={(match) => {
-              // console.log('booklist match in app', match)
-              return (
-                <BookList
-                  bookListProp={bookList}
-                  refreshBooklist={refreshBooklist}
-                  pageId={parseInt(match.match.params.page_id)}
-                  goToNextPage={goToNextPage}
-                />
+          exact
+          path="/page/:page_id"
+          render={(match) => {
+            // console.log('booklist match in app', match)
+            return (
+              <BookList
+              bookListProp={bookList}
+              refreshBooklist={refreshBooklist}
+              pageId={parseInt(match.match.params.page_id)}
+              goToNextPage={goToNextPage}
+              />
               );
               // return <BookList bookListProp={bookList} pageId={booklistId} goToNextPage={goToNextPage}/>;
             }}
-          />
-        )}
+            />
+            )}
 
         <Route
           exact
@@ -104,12 +135,12 @@ const App = () => {
           render={() => {
             return (
               <SearchResults
-                userInput={userInput}
-                setUserSearchResults={setUserSearchResults}
+              userInput={userInput}
+              setUserSearchResults={setUserSearchResults}
               />
-            );
-          }}
-        ></Route>
+              );
+            }}
+            ></Route>
       </main>
     </>
   );
