@@ -15,10 +15,11 @@ const App = () => {
   const [booklistId, setBookListId] = useState(window.location.pathname);
   const [currentLocation, setCurrentLocation] = useState(window.location.pathname);
   const [randomBook, setRandomBook] = useState(1)
+  const [currentBookId, setCurrentBookId] = useState(1)
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
-    // console.log('this is booklist id under useeffect app', booklistId)
+    console.log('this is current location in useeffect app', currentLocation)
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
     refreshBooklist()
     console.log("current location in useEffect App", currentLocation);
@@ -84,8 +85,13 @@ const App = () => {
         booklistId !== locationIdNumber &&
           (setCurrentLocation(locationIdNumber), setBookListId(locationIdNumber)))
          : locationObject.pathname === '/'
-         ? (randomBook === 1 && getRandomBook()) : ''
-
+         ? (randomBook === 1 && getRandomBook()) 
+         :  locationObject.pathname.includes('full')
+         ?  ((locationIdString = locationObject.pathname.split("/")),
+         (locationIdNumber = parseInt(locationIdString.pop())),
+         currentBookId !== locationIdNumber &&
+           (setCurrentLocation(locationIdNumber), setCurrentBookId(locationIdNumber)))
+          : ''
     )
 
 
@@ -96,6 +102,8 @@ const App = () => {
   };
   // console.log("location from state", location);
   // console.log(blankLocation);
+  console.log('this is current location above return', currentLocation)
+
   console.log("bookListId from app above return", booklistId);
   console.log("randomBOok from app above return", randomBook);
   // console.log('bookList from app above return', bookList)
@@ -105,22 +113,39 @@ const App = () => {
       }     */}
       <NavBar handleSearch={handleSearch} />
       <main>
+
         <Route exact path="/" render={() => <WelcomePage book={randomBook}/>} />
 
-        {bookList.length > 0 && (
+       
           <Route
             exact
             path="/full-book/:book_id"
             render={(match) => {
               return (
                 <FullBook
-                  // bookList={userInput ? userSearchResults : bookList}
+                  bookList={userInput ? userSearchResults : bookList}
                   bookId={match.match.params.book_id}
+                  currentBookId={currentLocation}
                 />
               );
             }}
           />
-        )}
+        
+        {/* {bookList.length > 0 && (
+          <Route
+            exact
+            path="/full-book/:book_id"
+            render={(match) => {
+              return (
+                <FullBook
+                  bookList={userInput ? userSearchResults : bookList}
+                  bookId={match.match.params.book_id}
+                  currentBookId={currentLocation}
+                />
+              );
+            }}
+          />
+        )} */}
         {MyComponent()}
 
         {bookList.length > 0 && (
