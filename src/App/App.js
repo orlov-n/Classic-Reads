@@ -13,10 +13,13 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
   const [booklistId, setBookListId] = useState(1);
+  const [randomList, setRandomList] = useState(null)
+  const [location, setLocation] = useState('/')
 
   useEffect(() => {
     // console.log('this is booklist id under useeffect app', booklistId)
     refreshBooklist();
+    getRandomList(location)
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId]);
 
@@ -24,23 +27,25 @@ const App = () => {
     // setBookListId(id);
     // // refreshBooklist()
   };
-  // const goHome = (blankLocation) => {
-  //   blankLocation === true &&
-  //     getBookList(1).then((response) => {
-  //       console.log(response);
-  //       console.log("nav bar triggered");
-  //       // console.log("booklistId in useEffect", booklistId);
-  //       const acceptableFormats = response.results.filter((item) => {
-  //         if (item.formats["text/html"]) {
-  //           return item;
-  //         }
-  //       });
-  //       setBookList(acceptableFormats);
-  //       // setBlankLocation(false);
-  //       // setBlankLocation(true)
-  //     });
-  //   // refreshBooklist()
-  // };
+  const getRandomList = (location) => {
+    let randomPageNumber = Math.floor(Math.random() * 1700) + 1
+    console.log(randomPageNumber)
+    location === '/' &&
+        getBookList(randomPageNumber).then((response) => {
+        console.log(response);
+        // console.log("nav bar triggered");
+        // console.log("booklistId in useEffect", booklistId);
+        const acceptableFormats = response.results.filter((item) => {
+          if (item.formats["text/html"]) {
+            return item;
+          }
+        });
+        setBookList(acceptableFormats);
+        // setBlankLocation(false);
+        // setBlankLocation(true)
+      });
+    // refreshBooklist()
+  };
 
   const refreshBooklist = () => {
     getBookList(booklistId).then((response) => {
