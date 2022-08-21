@@ -12,16 +12,17 @@ const App = () => {
   const [bookList, setBookList] = useState({});
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
-  const [booklistId, setBookListId] = useState(1);
-  const [currentLocation, setCurrentLocation] = useState(1);
+  const [booklistId, setBookListId] = useState(window.location.pathname);
+  const [currentLocation, setCurrentLocation] = useState(window.location.pathname);
   const [randomBook, setRandomBook] = useState(1)
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
     // console.log('this is booklist id under useeffect app', booklistId)
-    currentLocation === "/" ? getRandomBook() : refreshBooklist();
-
-    // console.log("this is booklist id under refreshbooklist in app", booklistId);
+    // currentLocation === "/" ? getRandomBook() : refreshBooklist();
+    refreshBooklist()
+    console.log("current location in useEffect App", currentLocation);
+    console.log("current window.location in useEffect App", window.location.pathname);
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId, currentLocation]);
 
@@ -32,6 +33,7 @@ const App = () => {
 
 
   const getRandomBook = () => {
+
     let randomPageNumber = Math.floor(Math.random() * 1700) + 1;
     console.log('get random book is triggered');
       getBookList(randomPageNumber).then((response) => {
@@ -53,6 +55,7 @@ const App = () => {
   };
 
   const refreshBooklist = () => {
+    !isNaN(booklistId)  &&
     getBookList(booklistId).then((response) => {
       console.log('response from refresh book list ', response);
       // console.log("booklistId in useEffect", booklistId);
@@ -69,15 +72,23 @@ const App = () => {
     const locationObject = useLocation();
     let locationIdString;
     let locationIdNumber;
+    // setCurrentLocation(locationObject.pathname)
     console.log("locationObject", locationObject);
     // console.log('booklist ID', booklistId)
 
-    return locationObject.pathname.includes('page')
+    return (
+      
+      locationObject.pathname.includes('page')
       ? ((locationIdString = locationObject.pathname.split("/")),
         (locationIdNumber = parseInt(locationIdString.pop())),
         booklistId !== locationIdNumber &&
           (setCurrentLocation(locationIdNumber), setBookListId(locationIdNumber)))
-      : "";
+         : locationObject.pathname === '/'
+         ? (randomBook === 1 && getRandomBook()) : ''
+
+    )
+
+
   };
 
   const handleSearch = (query) => {
