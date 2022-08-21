@@ -3,11 +3,16 @@ import { NavLink } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import PropTypes from "prop-types";
 
-export const NavBar = ({ handleSearch }) => {
+export const NavBar = ({ handleSearch, goHome }) => {
   return (
     <nav>
       <SearchBar handleSearch={handleSearch} />
-      <NavLink to={"/"}>
+      <NavLink to={"/"} 
+      // render={() => {goHome()}}
+      
+      >
+        
+      
         <h1>Read Now</h1>
       </NavLink>
       <NavLink to={"/page/1"}>
