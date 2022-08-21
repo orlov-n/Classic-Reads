@@ -13,17 +13,17 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
   const [booklistId, setBookListId] = useState(1);
+  const [currentLocation, setCurrentLocation] = useState(1);
+  const [randomBook, setRandomBook] = useState(1)
   // const [randomList, setRandomList] = useState(null);
-  const [location, setLocation] = useState("/");
-  const [randomBook, setRandomBook] = useState(2)
 
   useEffect(() => {
     // console.log('this is booklist id under useeffect app', booklistId)
-    location === "/" ? getRandomBook() : refreshBooklist();
+    currentLocation === "/" ? getRandomBook() : refreshBooklist();
 
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
-  }, [booklistId, location]);
+  }, [booklistId, currentLocation]);
 
   // const goToNextPage = (id) => {
   //   // setBookListId(id);
@@ -54,7 +54,7 @@ const App = () => {
 
   const refreshBooklist = () => {
     getBookList(booklistId).then((response) => {
-      console.log(response);
+      console.log('response from refresh book list ', response);
       // console.log("booklistId in useEffect", booklistId);
       const acceptableFormats = response.results.filter((item) => {
         if (item.formats["text/html"]) {
@@ -72,18 +72,18 @@ const App = () => {
     console.log("locationObject", locationObject);
     // console.log('booklist ID', booklistId)
 
-    return locationObject.pathname !== "/"
+    return locationObject.pathname.includes('page')
       ? ((locationIdString = locationObject.pathname.split("/")),
         (locationIdNumber = parseInt(locationIdString.pop())),
         booklistId !== locationIdNumber &&
-          (setLocation(locationIdNumber), setBookListId(locationIdNumber)))
+          (setCurrentLocation(locationIdNumber), setBookListId(locationIdNumber)))
       : "";
   };
 
   const handleSearch = (query) => {
     setUserInput(query);
   };
-  console.log("location from state", location);
+  // console.log("location from state", location);
   // console.log(blankLocation);
   console.log("bookListId from app above return", booklistId);
   console.log("randomBOok from app above return", randomBook);
