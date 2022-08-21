@@ -1,3 +1,16 @@
+.book-card-container {
+  min-height: 10rem;
+  min-width: 18rem;
+  max-height: 100rem;
+  height: 22vh;
+  width: 36vh;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  width: 33%;
+}
+
+
 .book {
 
   /* width: 25vh;  */
@@ -11,9 +24,9 @@
   /* min-width: 15rem; */
   /* width: 31vw; */
   /* height: 100%; */
-  margin: 5% auto;
+  margin: 5vh;
   background: #fff;
-  perspective: 70em;
+  perspective: 70rem;
   position: relative;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 0 3px #fff, 0 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 7px #9388BB, 0 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.51);
 }
