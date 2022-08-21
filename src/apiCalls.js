@@ -19,6 +19,7 @@ const searchQuery = (query) => {
     throw Error(response.statusText);
   });
 };
+
 const getBook = (bookId) => {
   return fetch(`https://gutendex.com/books/${bookId}`)
   .then((response) => {
