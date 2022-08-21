@@ -13,17 +13,22 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
   const [booklistId, setBookListId] = useState(window.location.pathname);
-  const [currentLocation, setCurrentLocation] = useState(window.location.pathname);
-  const [randomBook, setRandomBook] = useState(1)
-  const [currentBookId, setCurrentBookId] = useState(1)
+  const [currentLocation, setCurrentLocation] = useState(
+    window.location.pathname
+  );
+  const [randomBook, setRandomBook] = useState(1);
+  const [currentBookId, setCurrentBookId] = useState(1);
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
-    console.log('this is current location in useeffect app', currentLocation)
+    console.log("this is current location in useeffect app", currentLocation);
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
-    refreshBooklist()
+    refreshBooklist();
     console.log("current location in useEffect App", currentLocation);
-    console.log("current window.location in useEffect App", window.location.pathname);
+    console.log(
+      "current window.location in useEffect App",
+      window.location.pathname
+    );
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId, currentLocation]);
 
@@ -32,41 +37,39 @@ const App = () => {
   //   // // refreshBooklist()
   // };
 
-
   const getRandomBook = () => {
-
     let randomPageNumber = Math.floor(Math.random() * 1700) + 1;
-    console.log('get random book is triggered');
-      getBookList(randomPageNumber).then((response) => {
-        console.log('response from get random book', response);
-        // console.log("nav bar triggered");
-        // console.log("booklistId in useEffect", booklistId);
-        const acceptableFormats = response.results.filter((item) => {
-          if (item.formats["text/html"]) {
-            // console.log(item)
-            return item;
-          }
-        });
-        console.log('acceptable formats', acceptableFormats)
-        setRandomBook(acceptableFormats[0]);
-        // setBlankLocation(false);
-        // setBlankLocation(true)
+    console.log("get random book is triggered");
+    getBookList(randomPageNumber).then((response) => {
+      console.log("response from get random book", response);
+      // console.log("nav bar triggered");
+      // console.log("booklistId in useEffect", booklistId);
+      const acceptableFormats = response.results.filter((item) => {
+        if (item.formats["text/html"]) {
+          // console.log(item)
+          return item;
+        }
       });
+      console.log("acceptable formats", acceptableFormats);
+      setRandomBook(acceptableFormats[0]);
+      // setBlankLocation(false);
+      // setBlankLocation(true)
+    });
     // refreshBooklist()
   };
 
   const refreshBooklist = () => {
-    !isNaN(booklistId)  &&
-    getBookList(booklistId).then((response) => {
-      console.log('response from refresh book list ', response);
-      // console.log("booklistId in useEffect", booklistId);
-      const acceptableFormats = response.results.filter((item) => {
-        if (item.formats["text/html"]) {
-          return item;
-        }
+    !isNaN(booklistId) &&
+      getBookList(booklistId).then((response) => {
+        console.log("response from refresh book list ", response);
+        // console.log("booklistId in useEffect", booklistId);
+        const acceptableFormats = response.results.filter((item) => {
+          if (item.formats["text/html"]) {
+            return item;
+          }
+        });
+        setBookList(acceptableFormats);
       });
-      setBookList(acceptableFormats);
-    });
   };
 
   const MyComponent = () => {
@@ -77,24 +80,21 @@ const App = () => {
     console.log("locationObject", locationObject);
     // console.log('booklist ID', booklistId)
 
-    return (
-      
-      locationObject.pathname.includes('page')
+    return locationObject.pathname.includes("page")
       ? ((locationIdString = locationObject.pathname.split("/")),
         (locationIdNumber = parseInt(locationIdString.pop())),
         booklistId !== locationIdNumber &&
-          (setCurrentLocation(locationIdNumber), setBookListId(locationIdNumber)))
-         : locationObject.pathname === '/'
-         ? (randomBook === 1 && getRandomBook()) 
-         :  locationObject.pathname.includes('full')
-         ?  ((locationIdString = locationObject.pathname.split("/")),
-         (locationIdNumber = parseInt(locationIdString.pop())),
-         currentBookId !== locationIdNumber &&
-           (setCurrentLocation(locationIdNumber), setCurrentBookId(locationIdNumber)))
-          : ''
-    )
-
-
+          (setCurrentLocation(locationIdNumber),
+          setBookListId(locationIdNumber)))
+      : locationObject.pathname === "/"
+      ? randomBook === 1 && getRandomBook()
+      : locationObject.pathname.includes("full")
+      ? ((locationIdString = locationObject.pathname.split("/")),
+        (locationIdNumber = parseInt(locationIdString.pop())),
+        currentBookId !== locationIdNumber &&
+          (setCurrentLocation(locationIdNumber),
+          setCurrentBookId(locationIdNumber)))
+      : "";
   };
 
   const handleSearch = (query) => {
@@ -102,7 +102,9 @@ const App = () => {
   };
   // console.log("location from state", location);
   // console.log(blankLocation);
-  console.log('this is current location above return', currentLocation)
+  console.log("this is current location above return", currentLocation);
+  console.log("this is userInput above return", userInput);
+  console.log("this is userSearchResults above return", userSearchResults);
 
   console.log("bookListId from app above return", booklistId);
   console.log("randomBOok from app above return", randomBook);
@@ -113,39 +115,26 @@ const App = () => {
       }     */}
       <NavBar handleSearch={handleSearch} />
       <main>
+        <Route
+          exact
+          path="/"
+          render={() => <WelcomePage book={randomBook} />}
+        />
 
-        <Route exact path="/" render={() => <WelcomePage book={randomBook}/>} />
+        <Route
+          exact
+          path="/full-book/:book_id"
+          render={(match) => {
+            return (
+              <FullBook
+                bookList={userInput ? userSearchResults : bookList}
+                bookId={match.match.params.book_id}
+                currentBookId={currentLocation}
+              />
+            );
+          }}
+        />
 
-       
-          <Route
-            exact
-            path="/full-book/:book_id"
-            render={(match) => {
-              return (
-                <FullBook
-                  bookList={userInput ? userSearchResults : bookList}
-                  bookId={match.match.params.book_id}
-                  currentBookId={currentLocation}
-                />
-              );
-            }}
-          />
-        
-        {/* {bookList.length > 0 && (
-          <Route
-            exact
-            path="/full-book/:book_id"
-            render={(match) => {
-              return (
-                <FullBook
-                  bookList={userInput ? userSearchResults : bookList}
-                  bookId={match.match.params.book_id}
-                  currentBookId={currentLocation}
-                />
-              );
-            }}
-          />
-        )} */}
         {MyComponent()}
 
         {bookList.length > 0 && (

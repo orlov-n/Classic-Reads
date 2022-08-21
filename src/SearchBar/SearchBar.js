@@ -38,6 +38,6 @@ export const SearchBar = ({ handleSearch }) => {
   );
 };
 
-SearchBar.propTypes = {
-  handleSearch: PropTypes.func.isRequired
-};
+// SearchBar.propTypes = {
+//   handleSearch: PropTypes.func.isRequired
+// };
