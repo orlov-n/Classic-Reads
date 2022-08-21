@@ -12,8 +12,8 @@
   margin-right: 2rem; */
   width: 100vw;
   display: grid;
-  grid-gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
-  /* padding: 4% 4% 3% 21%; */
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  padding: 4% 8% 11% 8%;
 
 }
