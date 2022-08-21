@@ -1,8 +1,13 @@
+* {
+  border: cyan solid 1px;
 
+}
 main {
   display:flex;
  justify-content: center;
   min-width: 320px;
   background-color: #e9dfcc; 
+  /* width: 100%; */
+  width: 100vw;
 
 }

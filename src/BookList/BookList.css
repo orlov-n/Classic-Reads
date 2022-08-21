@@ -4,7 +4,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-left: 12rem;
-  margin-right: 12rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 100vw;
 
 }

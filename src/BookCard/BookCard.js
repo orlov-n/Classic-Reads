@@ -1,5 +1,5 @@
 import React from "react";
-import "./BookCard.css";
+import "./BookCard3.css";
 import PropTypes from 'prop-types'
 
 const BookCard = ({ bookCardProp }) => {
