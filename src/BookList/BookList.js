@@ -12,8 +12,8 @@ const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
   useEffect(() => {
     // goToNextPage(pageId)
     // refreshBooklist(pageId)
-    renderBookCards();
     setBookList(bookListProp);
+    renderBookCards();
   }, [bookListProp]);
 
   const renderBookCards = () => {
@@ -45,8 +45,8 @@ const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
 };
 
 
-BookList.propTypes = {
-  bookListProp: PropTypes.array.isRequired
-}
+// BookList.propTypes = {
+//   bookListProp: PropTypes.array.isRequired
+// }
 
 export default BookList;

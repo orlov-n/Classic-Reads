@@ -21,6 +21,6 @@ export const NavBar = ({ handleSearch, goHome }) => {
     </nav>
   );
 };
-NavBar.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
-};
+// NavBar.propTypes = {
+//   handleSearch: PropTypes.func.isRequired,
+// };

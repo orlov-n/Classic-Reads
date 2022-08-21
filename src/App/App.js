@@ -4,7 +4,7 @@ import { getBookList } from "../apiCalls";
 import BookList from "../BookList/BookList";
 import { Route, NavLink, useLocation } from "react-router-dom";
 import FullBook from "../FullBook/FullBook";
-import { WelcomePage } from "../WelcomePage/WelcomePage";
+// import { WelcomePage } from "../WelcomePage/WelcomePage";
 import { SearchResults } from "../SearchResults/SearchResults";
 import { NavBar } from "../NavBar/NavBar";
 
@@ -18,8 +18,10 @@ const App = () => {
 
   useEffect(() => {
     // console.log('this is booklist id under useeffect app', booklistId)
-    refreshBooklist();
-    getRandomList(location)
+    location === '/' ?
+    getRandomList(location) : 
+    refreshBooklist()
+
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId]);
 
@@ -27,6 +29,8 @@ const App = () => {
     // setBookListId(id);
     // // refreshBooklist()
   };
+
+
   const getRandomList = (location) => {
     let randomPageNumber = Math.floor(Math.random() * 1700) + 1
     console.log(randomPageNumber)
@@ -70,7 +74,7 @@ const App = () => {
     return location.pathname !== "/"
       ? ((locationIdString = location.pathname.split("/")),
         (locationIdNumber = parseInt(locationIdString.pop())),
-        booklistId !== locationIdNumber && setBookListId(locationIdNumber))
+        (booklistId !== locationIdNumber && (setLocation(locationIdNumber), setBookListId(locationIdNumber))))
       : "";
    
   };
@@ -88,7 +92,9 @@ const App = () => {
       }     */}
       <NavBar handleSearch={handleSearch} />
       <main>
-        <Route exact path="/" render={() => <WelcomePage />} />
+        {/* <Route exact path="/" render={() => <WelcomePage />} /> */}
+        
+
         {bookList.length > 0 && (
           <Route
             exact
@@ -104,6 +110,7 @@ const App = () => {
           />
         )}
         {MyComponent()}
+
 
         {bookList.length > 0 && (
           <Route

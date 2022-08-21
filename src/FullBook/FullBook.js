@@ -22,6 +22,6 @@ export const FullBook = ({ bookId }) => {
 
 export default FullBook;
 
-FullBook.propTypes = {
-  bookId: PropTypes.string.isRequired,
-};
+// FullBook.propTypes = {
+//   bookId: PropTypes.string.isRequired,
+// };

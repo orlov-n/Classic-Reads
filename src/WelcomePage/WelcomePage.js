@@ -1,9 +1,10 @@
-import React from "react";
+// import {useState, useEffect} from "react";
 import "./WelcomePage.css";
+import BookCard from "../BookCard/BookCard";
 
 export const WelcomePage = ({ bookId, randomBookList, pageId, goToNextPage, refreshBooklist }) => {
     const [bookLink, setBookLink] = useState("");
-    const [randomBookList, setRandomBookList] = useState([]);
+    // const [randomBookList, setRandomBookList] = useState([]);
     
     useEffect(() => {
       getBook(bookId).then((response) => {

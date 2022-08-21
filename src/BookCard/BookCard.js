@@ -23,8 +23,8 @@ const BookCard = ({ bookCardProp }) => {
 };
 
 
-BookCard.propTypes = {
-  bookCardProp: PropTypes.object.isRequired
-}
+// BookCard.propTypes = {
+//   bookCardProp: PropTypes.object.isRequired
+// }
 
 export default BookCard;
