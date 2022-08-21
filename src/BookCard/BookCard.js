@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const BookCard = ({ bookCardProp }) => {
   return (
-    <div className="book-card-container">
+    <>
       <div className="book">
         <div className="pagenext">
           <p>{bookCardProp.title}</p>
@@ -18,7 +18,7 @@ const BookCard = ({ bookCardProp }) => {
         <div className="line"></div>
         <p>{bookCardProp.title}</p>
       </div>
-    </div>
+    </>
   );
 };
 

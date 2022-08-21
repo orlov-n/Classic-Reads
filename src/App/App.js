@@ -13,9 +13,7 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
   const [booklistId, setBookListId] = useState(window.location.pathname);
-  const [currentLocation, setCurrentLocation] = useState(
-    window.location.pathname
-  );
+  const [currentLocation, setCurrentLocation] = useState( window.location.pathname);
   const [randomBook, setRandomBook] = useState(1);
   const [currentBookId, setCurrentBookId] = useState(1);
   // const [randomList, setRandomList] = useState(null);
@@ -32,10 +30,9 @@ const App = () => {
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId, currentLocation]);
 
-  // const goToNextPage = (id) => {
-  //   // setBookListId(id);
-  //   // // refreshBooklist()
-  // };
+  const searchBooks = () => {
+
+  }
 
   const getRandomBook = () => {
     let randomPageNumber = Math.floor(Math.random() * 1700) + 1;
@@ -52,10 +49,7 @@ const App = () => {
       });
       console.log("acceptable formats", acceptableFormats);
       setRandomBook(acceptableFormats[0]);
-      // setBlankLocation(false);
-      // setBlankLocation(true)
     });
-    // refreshBooklist()
   };
 
   const refreshBooklist = () => {
@@ -158,7 +152,7 @@ const App = () => {
 
         <Route
           exact
-          path="/books/search/results"
+          path="/search/:userInput"
           render={() => {
             return (
               <SearchResults

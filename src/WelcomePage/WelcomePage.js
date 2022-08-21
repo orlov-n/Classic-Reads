@@ -26,7 +26,7 @@ export const WelcomePage = ({
         Generate New Random Book
       </button>
 
-      <NavLink to={`/full-book/${book.id}`} key={book.id}>
+      <NavLink to={`/full-book/${book.id}`} key={book.id} style={{ textDecoration: "none" }}>
         <BookCard bookCardProp={book} />
       </NavLink>
     </section>

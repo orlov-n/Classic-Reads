@@ -20,7 +20,7 @@ const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
     return bookListProp.map((bookCard) => {
       // console.log('this is page id from booklist', pageId)
       return (
-        <NavLink to={`/full-book/${bookCard.id}`} key={bookCard.id}>
+        <NavLink to={`/full-book/${bookCard.id}`} key={bookCard.id} style={{ textDecoration: "none" }}>
           <BookCard bookCardProp={bookCard} />
         </NavLink>
       );
@@ -30,7 +30,8 @@ const BookList = ({ bookListProp, pageId, goToNextPage, refreshBooklist }) => {
 
   return (
     <section className="book-list-container">
-      <NavLink to={`/page/${pageId + 1}`}>
+      
+      <NavLink to={`/page/${pageId + 1}`} style={{ textDecoration: "none" }}>
       <button >
         Next Page
       </button>

@@ -6,10 +6,12 @@ import { searchQuery } from "../apiCalls";
 import PropTypes from 'prop-types';
 
 export const SearchResults = ({ userInput, setUserSearchResults }) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [newSearchResults, setNewSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('searchResults from SearchResults in UE', newSearchResults)
+    console.log('user input from SearchResults in UE', userInput)
     searchQuery(userInput).then((response) => {
       setLoading(false)
       const acceptableFormats = response.results.filter((item) => {
@@ -18,26 +20,38 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
         }
       });
    
-      setSearchResults(acceptableFormats);
+      setNewSearchResults(acceptableFormats);
       setUserSearchResults(acceptableFormats);
     });
   }, [userInput]);
 
   const renderBookCards = () => {
-    return searchResults.map((bookCard) => {
+    return newSearchResults.map((bookCard) => {
       return (
-        <NavLink to={`/book/${bookCard.id}`} key={bookCard.id}>
+        <NavLink to={`/full-book/${bookCard.id}`} key={bookCard.id} style={{ textDecoration: "none" }}>
           <BookCard bookCardProp={bookCard} />
         </NavLink>
       );
     });
   };
-
+  console.log('searchResults from SearchResults above return', newSearchResults)
+  console.log('user input from SearchResults above return', userInput)
   return (
     <section className="search-results-container">
-      {loading && <h2>Loading...</h2>}
-      {(!loading && !searchResults.length) && <h2>Your Query Did Not Return Any Results, Please Use Different Search Terms</h2> }
-      {searchResults && renderBookCards()}
+      {/* {loading && <h2>Loading...</h2>}
+      {(!loading && !newSearchResults.length) && <h2>Your Query Did Not Return Any Results, Please Use Different Search Terms</h2> } */}
+      {/* {searchResults && renderBookCards()} */}
+      {/* <NavLink to={`/search/${pageId + 1}`} style={{ textDecoration: "none" }}> */}
+      <NavLink to={`/search/results`} style={{ textDecoration: "none" }}>
+      <button >
+        Next Page
+      </button>
+      {/* <button onClick={()=> goToNextPage(pageId + 1)}>
+        Next Page
+      </button> */}
+      </NavLink>
+      {newSearchResults && renderBookCards()}
+
     </section>
   );
 };

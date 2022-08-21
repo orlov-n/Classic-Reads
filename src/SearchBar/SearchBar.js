@@ -11,12 +11,14 @@ export const SearchBar = ({ handleSearch }) => {
 
 
   const onSubmit = () => {
+    console.log(query)
     handleSearch(query)
     setReset('')
     setButtonDisabled(true)
   }
 
   const updateSearchField = (event) => {
+    console.log(query)
     setQuery(event)
     setReset(event)
     setButtonDisabled(false)
@@ -31,7 +33,7 @@ export const SearchBar = ({ handleSearch }) => {
         value={reset}>
       </input>
 
-      <NavLink to={"/books/search/results"}>
+      <NavLink to={`/search/${query}`} style={{ textDecoration: "none" }}>
         <button className='search-button' onClick={() => onSubmit()} disabled={buttonDisabled}>SUBMIT</button>
       </NavLink>
     </div>
