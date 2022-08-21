@@ -15,7 +15,7 @@ const App = () => {
   const [booklistId, setBookListId] = useState(1);
   // const [randomList, setRandomList] = useState(null);
   const [location, setLocation] = useState("/");
-  const [randomBook, setRandomBook] = useState(1)
+  const [randomBook, setRandomBook] = useState(2)
 
   useEffect(() => {
     // console.log('this is booklist id under useeffect app', booklistId)
