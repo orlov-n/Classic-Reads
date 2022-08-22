@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { getBookList } from "../apiCalls";
+import { getBookList, searchQuery } from "../apiCalls";
 import BookList from "../BookList/BookList";
 import { Route, NavLink, useLocation } from "react-router-dom";
 import FullBook from "../FullBook/FullBook";
@@ -16,26 +16,46 @@ const App = () => {
   const [currentLocation, setCurrentLocation] = useState( window.location.pathname);
   const [randomBook, setRandomBook] = useState(1);
   const [currentBookId, setCurrentBookId] = useState(1);
-  const [searchPageNum, setSearchPageNum] = useState(1)
+  const [searchPageNum, setSearchPageNum] = useState(2)
+  const [locationPath, setLocationPath] = useState('')
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
     console.log("this is current location in useeffect app", currentLocation);
-    console.log('searchPageNum in App in UE', searchPageNum)
+    // console.log('searchPageNum in App in UE', searchPageNum)
+    console.log('locationPath in App in UE', locationPath)
+    console.log('window location in UE in App', window.location.pathname)
 
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
-    refreshBooklist();
+    // refreshBooklist();
+    makeSearch()
     console.log("current location in useEffect App", currentLocation);
-    console.log(
-      "current window.location in useEffect App",
-      window.location.pathname
-    );
+    console.log( "current window.location in useEffect App", window.location.pathname);
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
-  }, [booklistId, currentLocation]);
+  }, [booklistId, currentLocation, searchPageNum, userInput]);
 
   const searchBooks = () => {
 
   }
+
+  const makeSearch = () => {
+    // searchQuery(searchPageNum, userInput).then((response) => {
+     
+      console.log('Search Page Num from App makeSearch', searchPageNum)
+    searchQuery(searchPageNum, userInput).then((response) => {
+      console.log('response from search results', response)
+      // setLoading(false)
+      const acceptableFormats = response.results.filter((item) => {
+        if (item.formats["text/html"]) {
+          return item;
+        }
+      });
+      // setCurrentSearchPage(currentSearchPage )
+      // setNewSearchResults(acceptableFormats);
+      setUserSearchResults(acceptableFormats);
+    });
+  }
+
 
   const getRandomBook = () => {
     let randomPageNumber = Math.floor(Math.random() * 1700) + 1;
@@ -72,6 +92,7 @@ const App = () => {
 
   const MyComponent = () => {
     const locationObject = useLocation();
+    
     let locationIdString;
     let locationIdNumber;
     // setCurrentLocation(locationObject.pathname)
@@ -92,24 +113,29 @@ const App = () => {
         currentBookId !== locationIdNumber &&
           (setCurrentLocation(locationIdNumber),
           setCurrentBookId(locationIdNumber)))
-      : "";
+      : locationObject.pathname.includes('search')
+     ? ((locationIdString = locationObject.pathname.split("/")),
+        (locationIdNumber = parseInt(locationIdString.pop())),
+        searchPageNum !== locationIdNumber &&
+          setSearchPageNum(locationIdNumber)) 
+          : ''
   };
 
 
-  const handleSearch = (pageId, query) => {
+  const handleSearch = (query) => {
     setUserInput(query);
-    setSearchPageNum(pageId)
+    setSearchPageNum(1)
   };
   // console.log("location from state", location);
   // console.log(blankLocation);
   console.log('searchPageNum in App AR', searchPageNum)
-
+console.log('query from App AR', userInput)
   console.log("this is current location above return", currentLocation);
   console.log("this is userInput above return", userInput);
   console.log("this is userSearchResults above return", userSearchResults);
-
-  console.log("bookListId from app above return", booklistId);
-  console.log("randomBOok from app above return", randomBook);
+  
+  // console.log("bookListId from app above return", booklistId);
+  // console.log("randomBOok from app above return", randomBook);
   // console.log('bookList from app above return', bookList)
   return (
     <>
@@ -160,13 +186,15 @@ const App = () => {
 
         <Route
           exact
-          path="/search/:userInput/search_page_num"
+          path="/search/:userInput/:search_page_num"
           render={() => {
             return (
               <SearchResults
                 userInput={userInput}
-                setUserSearchResults={setUserSearchResults}
+                setUserSearchResults={userSearchResults}
                 searchPageNum={searchPageNum}
+                handleSearch={handleSearch}
+                userSearchResults={userSearchResults}
               />
             );
           }}

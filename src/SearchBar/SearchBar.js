@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 
-export const SearchBar = ({searchPageNum, handleSearch }) => {
+export const SearchBar = ({ handleSearch }) => {
   const [query, setQuery] = useState("");
   const [reset, setReset] = useState('')
   const [buttonDisabled, setButtonDisabled] = useState(true)
@@ -12,7 +12,7 @@ export const SearchBar = ({searchPageNum, handleSearch }) => {
 
   const onSubmit = () => {
     console.log(query)
-    handleSearch(searchPageNum, query)
+    handleSearch(query)
     setReset('')
     setButtonDisabled(true)
   }
@@ -23,7 +23,7 @@ export const SearchBar = ({searchPageNum, handleSearch }) => {
     setReset(event)
     setButtonDisabled(false)
   }
-  console.log('searchPageNum in Search Bar AR', searchPageNum)
+  // console.log('searchPageNum in Search Bar AR', searchPageNum)
 
   return (
     <div className="search-bar-container">
@@ -34,7 +34,7 @@ export const SearchBar = ({searchPageNum, handleSearch }) => {
         value={reset}>
       </input>
 
-      <NavLink to={`/search/${query}/${searchPageNum + 1}`} style={{ textDecoration: "none" }}>
+      <NavLink to={`/search/${query}/1`} style={{ textDecoration: "none" }}>
         <button className='search-button' onClick={() => onSubmit()} disabled={buttonDisabled}>SUBMIT</button>
       </NavLink>
     </div>
