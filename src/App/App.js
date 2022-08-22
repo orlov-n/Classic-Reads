@@ -26,10 +26,12 @@ const App = () => {
     // console.log('locationPath in App in UE', locationPath)
     // console.log('window location in UE in App', window.location.pathname)
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
-    locationPath.includes('search') 
-    
-    ? makeSearch()
-    : refreshBooklist()
+    // locationPath.includes('search') 
+    !userInput && setUserInput(currentLocation.split('/')[2])
+    // ? makeSearch()
+    // : refreshBooklist()
+    makeSearch()
+    refreshBooklist()
     // ;
     console.log("current location in useEffect App", currentLocation);
     // console.log( "current window.location in useEffect App", window.location.pathname);
@@ -46,10 +48,11 @@ const App = () => {
       console.log('Search Page Num from App makeSearch', searchPageNum)
       // console.log('Splitting frm from App makeSearch', currentLocation.split('/')[2])
        
-
-      !userInput &&
-      setUserInput(currentLocation.split('/')[2])
+      // response.next[response.next.length -1] !== '=' &&
+      // !userInput &&
+      // setUserInput(currentLocation.split('/')[2])
       console.log('user input after split' , userInput)
+      userInput &&
     searchQuery(searchPageNum, userInput).then((response) => {
       console.log('response from search results', response)
       // response.next[response.next.length -1] !== '=' &&
