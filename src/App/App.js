@@ -16,10 +16,13 @@ const App = () => {
   const [currentLocation, setCurrentLocation] = useState( window.location.pathname);
   const [randomBook, setRandomBook] = useState(1);
   const [currentBookId, setCurrentBookId] = useState(1);
+  const [searchPageNum, setSearchPageNum] = useState(1)
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
     console.log("this is current location in useeffect app", currentLocation);
+    console.log('searchPageNum in App in UE', searchPageNum)
+
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
     refreshBooklist();
     console.log("current location in useEffect App", currentLocation);
@@ -51,6 +54,7 @@ const App = () => {
       setRandomBook(acceptableFormats[0]);
     });
   };
+
 
   const refreshBooklist = () => {
     !isNaN(booklistId) &&
@@ -91,11 +95,15 @@ const App = () => {
       : "";
   };
 
-  const handleSearch = (query) => {
+
+  const handleSearch = (pageId, query) => {
     setUserInput(query);
+    setSearchPageNum(pageId)
   };
   // console.log("location from state", location);
   // console.log(blankLocation);
+  console.log('searchPageNum in App AR', searchPageNum)
+
   console.log("this is current location above return", currentLocation);
   console.log("this is userInput above return", userInput);
   console.log("this is userSearchResults above return", userSearchResults);
@@ -107,7 +115,7 @@ const App = () => {
     <>
       {/* {    console.log('bookListId from app  return', booklistId)
       }     */}
-      <NavBar handleSearch={handleSearch} />
+      <NavBar handleSearch={handleSearch} searchPageNum={searchPageNum} />
       <main>
         <Route
           exact
@@ -121,7 +129,7 @@ const App = () => {
           render={(match) => {
             return (
               <FullBook
-                bookList={userInput ? userSearchResults : bookList}
+                // bookList={userInput ? userSearchResults : bookList}
                 bookId={match.match.params.book_id}
                 currentBookId={currentLocation}
               />
@@ -152,12 +160,13 @@ const App = () => {
 
         <Route
           exact
-          path="/search/:userInput"
+          path="/search/:userInput/search_page_num"
           render={() => {
             return (
               <SearchResults
                 userInput={userInput}
                 setUserSearchResults={setUserSearchResults}
+                searchPageNum={searchPageNum}
               />
             );
           }}

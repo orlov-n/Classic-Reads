@@ -9,9 +9,9 @@ const getBookList = (id) => {
   });
 };
 
-const searchQuery = (query) => {
+const searchQuery = (pageNum, query) => {
   return fetch(
-    `https://gutendex.com/books/?copyright=false&languages=en&search=${query}`)
+    `https://gutendex.com/books/?copyright=false&languages=en&page=${pageNum}&search=${query}`)
     .then((response) => {
     if (response.ok) {
       return response.json();

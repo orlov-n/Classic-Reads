@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import { SearchBar } from "../SearchBar/SearchBar";
 import PropTypes from "prop-types";
 
-export const NavBar = ({ handleSearch, goHome }) => {
+export const NavBar = ({ handleSearch, searchPageNum }) => {
   return (
     <nav>
-      <SearchBar handleSearch={handleSearch} />
+      <SearchBar handleSearch={handleSearch} searchPageNum={searchPageNum}/>
       <NavLink to={"/"} style={{ textDecoration: "none" }}
       // render={() => {goHome()}}
       

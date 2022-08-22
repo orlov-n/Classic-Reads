@@ -5,14 +5,16 @@ import { NavLink } from "react-router-dom";
 import { searchQuery } from "../apiCalls";
 import PropTypes from 'prop-types';
 
-export const SearchResults = ({ userInput, setUserSearchResults }) => {
+export const SearchResults = ({searchPageNum, userInput, setUserSearchResults }) => {
   const [newSearchResults, setNewSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     console.log('searchResults from SearchResults in UE', newSearchResults)
     console.log('user input from SearchResults in UE', userInput)
-    searchQuery(userInput).then((response) => {
+    console.log('searchPageNum in SearchResults in UE', searchPageNum)
+    searchQuery(searchPageNum, userInput).then((response) => {
+      console.log('response from search results', response)
       setLoading(false)
       const acceptableFormats = response.results.filter((item) => {
         if (item.formats["text/html"]) {
@@ -23,7 +25,7 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
       setNewSearchResults(acceptableFormats);
       setUserSearchResults(acceptableFormats);
     });
-  }, [userInput]);
+  }, [userInput, searchPageNum]);
 
   const renderBookCards = () => {
     return newSearchResults.map((bookCard) => {
@@ -36,6 +38,8 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
   };
   console.log('searchResults from SearchResults above return', newSearchResults)
   console.log('user input from SearchResults above return', userInput)
+  console.log('searchPageNum in SearchResults AR', searchPageNum)
+
   return (
     <section className="search-results-container">
       {/* {loading && <h2>Loading...</h2>}
@@ -43,6 +47,7 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
       {/* {searchResults && renderBookCards()} */}
       {/* <NavLink to={`/search/${pageId + 1}`} style={{ textDecoration: "none" }}> */}
       <NavLink to={`/search/results`} style={{ textDecoration: "none" }}>
+      {/* <NavLink to={`/search/results/${searchPageNum}`} style={{ textDecoration: "none" }}> */}
       <button >
         Next Page
       </button>
@@ -57,7 +62,7 @@ export const SearchResults = ({ userInput, setUserSearchResults }) => {
 };
 
 
-SearchResults.propTypes = {
-  userInput: PropTypes.string.isRequired,
-  setUserSearchResults: PropTypes.func.isRequired
-};
+// SearchResults.propTypes = {
+//   userInput: PropTypes.string.isRequired,
+//   setUserSearchResults: PropTypes.func.isRequired
+// };
