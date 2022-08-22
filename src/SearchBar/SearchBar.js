@@ -2,26 +2,32 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { useEffect } from "react";
 
 
-export const SearchBar = ({ handleSearch }) => {
+export const SearchBar = ({ handleSearch, tempUserInput }) => {
   const [query, setQuery] = useState("");
-  const [reset, setReset] = useState('')
-  const [buttonDisabled, setButtonDisabled] = useState(true)
+  // const [reset, setReset] = useState(tempUserInput)
+  // const [buttonDisabled, setButtonDisabled] = useState(true)
 
+  useEffect(() => {
+      setQuery(tempUserInput)
+
+  }, [tempUserInput])
 
   const onSubmit = () => {
     console.log(query)
     handleSearch(query)
-    setReset('')
-    setButtonDisabled(true)
+    // setReset('')
+    // setQuery('')
+    // setButtonDisabled(true)
   }
 
   const updateSearchField = (event) => {
     console.log(query)
     setQuery(event)
-    setReset(event)
-    setButtonDisabled(false)
+    // setReset(event)
+    // setButtonDisabled(false)
   }
   // console.log('searchPageNum in Search Bar AR', searchPageNum)
 
@@ -31,11 +37,11 @@ export const SearchBar = ({ handleSearch }) => {
         onChange={(event) => updateSearchField(event.target.value)}
         placeholder="Search Here"
         type="text"
-        value={reset}>
+        value={query}>
       </input>
 
       <NavLink to={`/search/${query}/1`} style={{ textDecoration: "none" }}>
-        <button className='search-button' onClick={() => onSubmit()} disabled={buttonDisabled}>SUBMIT</button>
+        <button className='search-button' onClick={() => onSubmit()} disabled={query.length === 0}>SUBMIT</button>
       </NavLink>
     </div>
   );

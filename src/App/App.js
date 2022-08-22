@@ -13,11 +13,13 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [userSearchResults, setUserSearchResults] = useState([]);
   const [booklistId, setBookListId] = useState(window.location.pathname);
-  const [currentLocation, setCurrentLocation] = useState( window.location.pathname);
+  const [currentLocation, setCurrentLocation] = useState(window.location.pathname);
   const [randomBook, setRandomBook] = useState(1);
   const [currentBookId, setCurrentBookId] = useState(1);
-  const [searchPageNum, setSearchPageNum] = useState(2)
-  const [locationPath, setLocationPath] = useState('')
+  const [searchPageNum, setSearchPageNum] = useState(2);
+  const [locationPath, setLocationPath] = useState("");
+  const [tempUserInput, setTempUserInput] = useState('')
+
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
@@ -26,49 +28,46 @@ const App = () => {
     // console.log('locationPath in App in UE', locationPath)
     // console.log('window location in UE in App', window.location.pathname)
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
-    // locationPath.includes('search') 
-    !userInput && setUserInput(currentLocation.split('/')[2])
+    // locationPath.includes('search')
+    // !userInput && setUserInput(currentLocation.split("/")[2]);
     // ? makeSearch()
     // : refreshBooklist()
-    makeSearch()
-    refreshBooklist()
+    makeSearch();
+    refreshBooklist();
     // ;
     console.log("current location in useEffect App", currentLocation);
     // console.log( "current window.location in useEffect App", window.location.pathname);
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId, currentLocation, searchPageNum, userInput]);
 
-  const searchBooks = () => {
-
-  }
+  const searchBooks = () => {};
 
   const makeSearch = () => {
     // searchQuery(searchPageNum, userInput).then((response) => {
-     
-      console.log('Search Page Num from App makeSearch', searchPageNum)
-      // console.log('Splitting frm from App makeSearch', currentLocation.split('/')[2])
-       
-      // response.next[response.next.length -1] !== '=' &&
-      // !userInput &&
-      // setUserInput(currentLocation.split('/')[2])
-      console.log('user input after split' , userInput)
-      userInput &&
-    searchQuery(searchPageNum, userInput).then((response) => {
-      console.log('response from search results', response)
-      // response.next[response.next.length -1] !== '=' &&
-      // setLoading(false)
-      // console.log('last part of the string in response', response.next[response.next.length -1])
-      let acceptableFormats = response.results.filter((item) => {
-        if (item.formats["text/html"]) {
-          return item;
-        }
-      });
-      // setCurrentSearchPage(currentSearchPage )
-      // setNewSearchResults(acceptableFormats);
-      setUserSearchResults(acceptableFormats);
-    });
-  }
 
+    console.log("Search Page Num from App makeSearch", searchPageNum);
+    // console.log('Splitting frm from App makeSearch', currentLocation.split('/')[2])
+
+    // response.next[response.next.length -1] !== '=' &&
+    // !userInput &&
+    // setUserInput(currentLocation.split('/')[2])
+    console.log("user input after split", userInput);
+    userInput &&
+      searchQuery(searchPageNum, userInput).then((response) => {
+        console.log("response from search results", response);
+        // response.next[response.next.length -1] !== '=' &&
+        // setLoading(false)
+        // console.log('last part of the string in response', response.next[response.next.length -1])
+        let acceptableFormats = response.results.filter((item) => {
+          if (item.formats["text/html"]) {
+            return item;
+          }
+        });
+        // setCurrentSearchPage(currentSearchPage )
+        // setNewSearchResults(acceptableFormats);
+        setUserSearchResults(acceptableFormats);
+      });
+  };
 
   const getRandomBook = () => {
     let randomPageNumber = Math.floor(Math.random() * 1700) + 1;
@@ -88,7 +87,6 @@ const App = () => {
     });
   };
 
-
   const refreshBooklist = () => {
     !isNaN(booklistId) &&
       getBookList(booklistId).then((response) => {
@@ -105,7 +103,7 @@ const App = () => {
 
   const MyComponent = () => {
     const locationObject = useLocation();
-    
+
     let locationIdString;
     let locationIdNumber;
     // setCurrentLocation(locationObject.pathname)
@@ -113,40 +111,62 @@ const App = () => {
     // console.log('booklist ID', booklistId)
 
     return locationObject.pathname.includes("page")
-      ? ((locationIdString = locationObject.pathname.split("/")),
-        (locationIdNumber = parseInt(locationIdString.pop())),
+      ? (locationIdNumber = parseInt(locationObject.pathname.split("/")[2]),
         booklistId !== locationIdNumber &&
           (setCurrentLocation(locationIdNumber),
           setBookListId(locationIdNumber)))
       : locationObject.pathname === "/"
       ? randomBook === 1 && getRandomBook()
       : locationObject.pathname.includes("full")
-      ? ((locationIdString = locationObject.pathname.split("/")),
-        (locationIdNumber = parseInt(locationIdString.pop())),
+      ? 
+        (locationIdNumber = parseInt(locationObject.pathname.split("/")[2]),
         currentBookId !== locationIdNumber &&
           (setCurrentLocation(locationIdNumber),
           setCurrentBookId(locationIdNumber)))
-      : locationObject.pathname.includes('search')
-     ? ((locationIdString = locationObject.pathname.split("/")),
-        (locationIdNumber = parseInt(locationIdString.pop())),
+      : locationObject.pathname.includes("search")
+      ? 
+        (locationIdNumber = parseInt(locationObject.pathname.split("/")[3]),
         searchPageNum !== locationIdNumber &&
-          setSearchPageNum(locationIdNumber)) 
-          : ''
+          setSearchPageNum(locationIdNumber))
+      : "";
+    // return locationObject.pathname.includes("page")
+    //   ? ((locationIdString = locationObject.pathname.split("/")),
+    //     (locationIdNumber = parseInt(locationIdString.pop())),
+    //     booklistId !== locationIdNumber &&
+    //       (setCurrentLocation(locationIdNumber),
+    //       setBookListId(locationIdNumber)))
+    //   : locationObject.pathname === "/"
+    //   ? randomBook === 1 && getRandomBook()
+    //   : locationObject.pathname.includes("full")
+    //   ? ((locationIdString = locationObject.pathname.split("/")),
+    //     (locationIdNumber = parseInt(locationIdString.pop())),
+    //     currentBookId !== locationIdNumber &&
+    //       (setCurrentLocation(locationIdNumber),
+    //       setCurrentBookId(locationIdNumber)))
+    //   : locationObject.pathname.includes("search")
+    //   ? ((locationIdString = locationObject.pathname.split("/")),
+    //     (locationIdNumber = parseInt(locationIdString.pop())),
+    //     searchPageNum !== locationIdNumber &&
+    //       setSearchPageNum(locationIdNumber))
+    //   : "";
   };
-
 
   const handleSearch = (query) => {
     setUserInput(query);
-    setSearchPageNum(1)
+    setSearchPageNum(1);
+    setTempUserInput(query)
+
   };
   // console.log("location from state", location);
   // console.log(blankLocation);
-  console.log('searchPageNum in App AR', searchPageNum)
-console.log('query from App AR', userInput)
+  console.log("searchPageNum in App AR", searchPageNum);
+  console.log("query from App AR", userInput);
   console.log("this is current location above return", currentLocation);
+  console.log("this is location path above return", locationPath);
+
   console.log("this is userInput above return", userInput);
   console.log("this is userSearchResults above return", userSearchResults);
-  
+
   // console.log("bookListId from app above return", booklistId);
   // console.log("randomBOok from app above return", randomBook);
   // console.log('bookList from app above return', bookList)
@@ -154,7 +174,7 @@ console.log('query from App AR', userInput)
     <>
       {/* {    console.log('bookListId from app  return', booklistId)
       }     */}
-      <NavBar handleSearch={handleSearch} searchPageNum={searchPageNum} />
+      <NavBar handleSearch={handleSearch} searchPageNum={searchPageNum} tempUserInput={tempUserInput} />
       <main>
         <Route
           exact
@@ -208,6 +228,7 @@ console.log('query from App AR', userInput)
                 searchPageNum={searchPageNum}
                 handleSearch={handleSearch}
                 userSearchResults={userSearchResults}
+                currentLocation={currentLocation}
               />
             );
           }}
