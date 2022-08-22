@@ -21,16 +21,18 @@ const App = () => {
   // const [randomList, setRandomList] = useState(null);
 
   useEffect(() => {
-    console.log("this is current location in useeffect app", currentLocation);
-    // console.log('searchPageNum in App in UE', searchPageNum)
-    console.log('locationPath in App in UE', locationPath)
-    console.log('window location in UE in App', window.location.pathname)
-
+    // console.log("this is current location in useeffect app", currentLocation);
+    // // console.log('searchPageNum in App in UE', searchPageNum)
+    // console.log('locationPath in App in UE', locationPath)
+    // console.log('window location in UE in App', window.location.pathname)
     // currentLocation === "/" ? getRandomBook() : refreshBooklist();
-    // refreshBooklist();
-    makeSearch()
+    locationPath.includes('search') 
+    
+    ? makeSearch()
+    : refreshBooklist()
+    // ;
     console.log("current location in useEffect App", currentLocation);
-    console.log( "current window.location in useEffect App", window.location.pathname);
+    // console.log( "current window.location in useEffect App", window.location.pathname);
     // console.log("this is booklist id under refreshbooklist in app", booklistId);
   }, [booklistId, currentLocation, searchPageNum, userInput]);
 
@@ -42,10 +44,18 @@ const App = () => {
     // searchQuery(searchPageNum, userInput).then((response) => {
      
       console.log('Search Page Num from App makeSearch', searchPageNum)
+      // console.log('Splitting frm from App makeSearch', currentLocation.split('/')[2])
+       
+
+      !userInput &&
+      setUserInput(currentLocation.split('/')[2])
+      console.log('user input after split' , userInput)
     searchQuery(searchPageNum, userInput).then((response) => {
       console.log('response from search results', response)
+      // response.next[response.next.length -1] !== '=' &&
       // setLoading(false)
-      const acceptableFormats = response.results.filter((item) => {
+      // console.log('last part of the string in response', response.next[response.next.length -1])
+      let acceptableFormats = response.results.filter((item) => {
         if (item.formats["text/html"]) {
           return item;
         }
