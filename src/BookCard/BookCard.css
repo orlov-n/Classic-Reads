@@ -1,14 +1,16 @@
 .book {
-  width: 200px;
-  height: 100px;
-  /* margin: 5% auto; */
+
+  min-height: 10rem;
+  min-width: 18rem;
+  max-height: 100rem;
+  height: 22vh;
+  width: 36vh;
+  object-fit: contain;
+  margin: 5vh;
   background: #fff;
-  perspective: 70em;
+  perspective: 70rem;
   position: relative;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 0 3px #fff, 0 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 7px #9388BB, 0 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.51);
-  overflow: hidden;
-  margin: 1rem;
-
 }
 
 .page {
@@ -19,10 +21,8 @@
   transform-origin: left;
   transform: rotateY(0deg);
   opacity: 1;
-  transition: all 5s ease-in-out;
-  animation: turnpage 20s infinite linear;
-  overflow: hidden;
-
+  transition: all 2.5s ease-in-out;
+  animation: turnpage 10s infinite linear;
 }
 
 .pagenext {
@@ -31,8 +31,6 @@
   position: absolute;
   height: 100%;
   margin: 0% 50%;
-  overflow: hidden;
-
 }
 
 .pageprev {
@@ -44,10 +42,7 @@
   height: 100%;
   transform: rotateY(180deg);
   opacity: 0;
-  animation: opac 20s infinite linear;
-  overflow: hidden;
-  margin-top: -2px;
-
+  animation: opac 10s infinite linear;
 }
 
 .line {
@@ -58,33 +53,20 @@
   height: 0;
   top: 50%;
   left: 25%;
-  overflow: hidden;
-
 }
 
 p {
-  /* padding: 10px 10px 0 10px; */
+  padding: 10px 10px 0 10px;
   font-size: 25%;
-  overflow: hidden;
 }
 
 .page p {
   margin-top: -0.7px;
-  /* padding: 10px 0px 0 10px; */
-  overflow: hidden;
-
+  padding: 10px 0px 0 10px;
 }
 
 .pagenext p {
   margin-top: -2px;
-  overflow: hidden;
-  padding: 0;
-
-}
-
-p {
-  margin: 0;
-  padding: 0;
 }
 
 @keyframes turnpage {
@@ -102,7 +84,6 @@ p {
   100% {
     transform: rotateY(-180deg);
   }
-
 }
 
 @keyframes opac {
@@ -117,8 +98,4 @@ p {
   100% {
     opacity: 1;
   }
-}
-
-iframe {
-  height: 55px;
 }

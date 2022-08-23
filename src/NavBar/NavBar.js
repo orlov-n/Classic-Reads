@@ -6,13 +6,12 @@ import PropTypes from "prop-types";
 export const NavBar = ({ handleSearch, searchPageNum, tempUserInput }) => {
   return (
     <nav>
-      <SearchBar handleSearch={handleSearch} searchPageNum={searchPageNum} tempUserInput={tempUserInput}/>
-      <NavLink to={"/"} style={{ textDecoration: "none" }}
-      // render={() => {goHome()}}
-      
-      >
-        
-      
+      <SearchBar
+        handleSearch={handleSearch}
+        searchPageNum={searchPageNum}
+        tempUserInput={tempUserInput}
+      />
+      <NavLink to={"/"} style={{ textDecoration: "none" }}>
         <h1>Read Now</h1>
       </NavLink>
       <NavLink to={"/page/1"} style={{ textDecoration: "none" }}>

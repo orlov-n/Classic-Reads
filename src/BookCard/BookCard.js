@@ -1,6 +1,6 @@
 import React from "react";
-import "./BookCard3.css";
-import PropTypes from 'prop-types'
+import "./BookCard.css";
+import PropTypes from "prop-types";
 
 const BookCard = ({ bookCardProp }) => {
   return (
@@ -21,7 +21,6 @@ const BookCard = ({ bookCardProp }) => {
     </>
   );
 };
-
 
 // BookCard.propTypes = {
 //   bookCardProp: PropTypes.object.isRequired
