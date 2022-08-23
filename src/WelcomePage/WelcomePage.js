@@ -3,21 +3,8 @@ import "./WelcomePage.css";
 import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
 
-export const WelcomePage = ({
-  book,
-  randomBookList,
-  pageId,
-  goToNextPage,
-  refreshBooklist,
-}) => {
-  const [bookLink, setBookLink] = useState("");
-  // const [randomBookList, setRandomBookList] = useState([]);
-  console.log("book from welcome page", book);
-  useEffect(() => {
-    // getBook(bookId).then((response) => {
-    //   setBookLink(response.formats["text/html"]);
-    // });
-  }, [book]);
+export const WelcomePage = ({ book }) => {
+  useEffect(() => {}, [book]);
 
   return (
     <section className="welcome-page-container">
@@ -26,7 +13,11 @@ export const WelcomePage = ({
         Generate New Random Book
       </button>
 
-      <NavLink to={`/full-book/${book.id}`} key={book.id} style={{ textDecoration: "none" }}>
+      <NavLink
+        to={`/full-book/${book.id}`}
+        key={book.id}
+        style={{ textDecoration: "none" }}
+      >
         <BookCard bookCardProp={book} />
       </NavLink>
     </section>

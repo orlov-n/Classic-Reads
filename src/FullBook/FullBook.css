@@ -1,24 +1,14 @@
 .full-book-container {
-   /* height: 55rem; */
-   /* width: 100vh; */
-   width: 100%;
-   width: 100vw;
-   /* width: 55rem; */
-   /* margin-left: -15.15%;
-   margin-right: -15.75%; */
-  /* overflow-y: hidden; */
-
+  width: 100%;
+  width: 100vw;
   max-width: 35rem;
 
 }
 
-
 embed {
   height: 100vh;
-   /* width: 100%; */
-   width: 57vw;
-   width: 130%;
-   /* margin-left: -5%; */
-  /* overflow-y: hidden; */
+  width: 57vw;
+  width: 130%;
+
 
 }

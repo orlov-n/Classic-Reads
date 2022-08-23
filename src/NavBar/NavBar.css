@@ -1,6 +1,5 @@
 .button-top-books {
   height: 4rem;
-  /* margin: 2rem; */
   width: 12em;
 }
 
@@ -32,7 +31,6 @@ h1 {
   font-weight: lighter;
   letter-spacing: 2px;
   transition: 1s box-shadow;
-  /* margin: 2rem; */
 }
 
 h1:hover {
