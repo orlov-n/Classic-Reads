@@ -32,7 +32,7 @@ export const SearchResults = ({
     return userSearchResults.map((bookCard) => {
       return (
         <NavLink
-          to={`/full-book/${bookCard.id + 1}`}
+          to={`/full-book/${bookCard.id}`}
           key={bookCard.id}
           style={{ textDecoration: "none" }}
         >
