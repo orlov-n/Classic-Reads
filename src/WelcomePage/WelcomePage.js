@@ -8,18 +8,22 @@ export const WelcomePage = ({ book }) => {
 
   return (
     <section className="welcome-page-container">
-      <h2>WELCOME</h2>
-      <button onClick={() => window.location.reload()}>
-        Generate New Random Book
-      </button>
+      <h2 className="read-now">Read Now</h2>
+      
+      <div className="welcome-book-container">
 
       <NavLink
         to={`/full-book/${book.id}`}
         key={book.id}
         style={{ textDecoration: "none" }}
-      >
-        <BookCard bookCardProp={book} />
+        >
+        <BookCard bookCardProp={book} className="book-welcome"/>
       </NavLink>
+      <button className="button-random" onClick={() => window.location.reload()}>
+        Generate New Random Book
+      </button>
+        </div>
+      
     </section>
   );
 };

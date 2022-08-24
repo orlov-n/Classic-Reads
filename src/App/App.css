@@ -1,7 +1,7 @@
-/* * {
-  border: cyan solid 1px;
+* {
+  border: rgb(26, 138, 138) solid 1px;
 
-} */
+}
 main {
   display:flex;
  justify-content: center;

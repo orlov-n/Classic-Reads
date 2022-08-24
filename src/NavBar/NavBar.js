@@ -12,7 +12,7 @@ export const NavBar = ({ handleSearch, searchPageNum, tempUserInput }) => {
         tempUserInput={tempUserInput}
       />
       <NavLink to={"/"} style={{ textDecoration: "none" }}>
-        <h1>Read Now</h1>
+        <h1>Classic Reads</h1>
       </NavLink>
       <NavLink to={"/page/1"} style={{ textDecoration: "none" }}>
         <button className="button-top-books">Top Free Books</button>

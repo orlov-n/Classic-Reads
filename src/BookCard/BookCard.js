@@ -2,10 +2,10 @@ import React from "react";
 import "./BookCard.css";
 import PropTypes from "prop-types";
 
-const BookCard = ({ bookCardProp }) => {
+const BookCard = ({ bookCardProp, className = ''}) => {
   return (
     <>
-      <div className="book">
+      <div className={`book ${className}`}>
         <div className="pagenext">
           <p>{bookCardProp.title}</p>
         </div>
