@@ -1,19 +1,19 @@
-.button-top-books {
+/* .button-top-books {
   height: 4rem;
   width: 12em;
-}
+} */
 
-
-nav {
+ nav {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 1rem;
-  height: 4rem;
-  margin-top: 1rem;
-}
+  justify-content: space-around;
+  /* align-items: center; */
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  /* width: 100%; */
+  /* margin-bottom: 1rem; */
+  /* height: 4rem; */
+  /* margin-top: 1rem; */
+} 
 
 
 h1 {
@@ -21,16 +21,16 @@ h1 {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 20px auto;
-  width: 250px;
-  height: 50px;
+  margin: 1.3rem auto;
+  width: 16rem;
+  height: 3rem;
   background: white;
-  border-radius: 75px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: lighter;
-  letter-spacing: 2px;
-  transition: 1s box-shadow;
+  border-radius: 5rem;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 3vh
+  /* font-weight: lighter; */
+  /* letter-spacing: 2px; */
+  /* transition: 1s box-shadow; */
 }
 
 h1:hover {

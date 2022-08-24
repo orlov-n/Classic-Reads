@@ -8,7 +8,7 @@ export const WelcomePage = ({ book }) => {
 
   return (
     <section className="welcome-page-container">
-      <h2 className="read-now">Read Now</h2>
+      <h2 className="read-now">Enjoy This Random Classic!</h2>
       
       <div className="welcome-book-container">
 

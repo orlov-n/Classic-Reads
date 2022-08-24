@@ -28,7 +28,10 @@ const BookList = ({ bookListProp, pageId }) => {
       <NavLink to={`/page/${pageId + 1}`} style={{ textDecoration: "none" }}>
         <button>Next Page</button>
       </NavLink>
+      <div className="book-cards-grid">
+
       {bookListProp && renderBookCards()}
+      </div>
     </section>
   );
 };
