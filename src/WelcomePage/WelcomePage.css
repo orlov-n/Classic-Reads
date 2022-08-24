@@ -46,15 +46,11 @@
 
 }
 
-.read-now {
+.welcome-message {
+
+  
   margin: 1rem 1rem;
   font-size: min(6vw, 6vh);
 
 }
 
-.button-top-books {
-  display: block;
-  position: absolute;
-  top: 3;
-  right: 0;
-}

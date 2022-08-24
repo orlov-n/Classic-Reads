@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./WelcomePage.css";
 import BookCard from "../BookCard/BookCard";
 import { NavLink } from "react-router-dom";
@@ -8,7 +8,7 @@ export const WelcomePage = ({ book }) => {
 
   return (
     <section className="welcome-page-container">
-      <h2 className="read-now">Enjoy This Random Classic!</h2>
+      <h2 className="welcome-message">Enjoy This Random Classic!</h2>
       
       <div className="welcome-book-container">
 
