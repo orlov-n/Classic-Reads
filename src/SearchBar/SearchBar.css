@@ -40,6 +40,7 @@ margin-left: .52rem;
   flex-direction: row-reverse;
   padding-left: 1rem;
   border: none;
+  max-height: 10rem;
   /* padding-top: 1rem; */
   /* padding-top: 1rem; */
 box-shadow: inset 0 .2rem .4rem rgba(0,0,0,0.16), 0 .3rem .4rem rgba(0,0,0,0.45);
