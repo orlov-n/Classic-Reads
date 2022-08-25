@@ -9,6 +9,7 @@
    /* width: 100%; */
    /* font-size: 4rem; */
    margin: 0;
+   flex-shrink: 0
 }
 
 .welcome-book-container {
@@ -16,10 +17,12 @@
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  /* height: 100%; */
-  height: 100vh;
+  height: 100%;
+  /* height: 100vh; */
   /* width: 100%; */
   width: 100vw;
+  flex-shrink: 0
+
   /* padding-left: 12%; */
 }
 
@@ -50,7 +53,7 @@
 
   
   margin: 1rem 1rem;
-  font-size: min(6vw, 6vh);
+  font-size: min(4rem, 3vh);
 
 }
 

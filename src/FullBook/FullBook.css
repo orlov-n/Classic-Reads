@@ -1,14 +1,33 @@
 .full-book-container {
-  width: 100%;
+  /* width: 100%; */
   width: 100vw;
-  max-width: 35rem;
+  /* max-width: 35rem; */
+  /* position: absolute; */
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+/* overflow-x: hidden; */
+margin-top: 2vh;
 
 }
 
 embed {
   height: 100vh;
-  width: 57vw;
-  width: 130%;
+  min-width: 25rem;
+  width: 39vw;
+  /* width: 130%; */
+  /* max-width: 77vw; */
+  position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+/* overflow-x: hidden; */
+
 
 
 }
+
