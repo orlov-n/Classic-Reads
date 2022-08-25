@@ -20,7 +20,7 @@ export const WelcomePage = ({ book }) => {
         <BookCard bookCardProp={book} className="book-welcome"/>
       </NavLink>
       <button className="button-random" onClick={() => window.location.reload()}>
-        Generate New Random Book
+         New Random Book
       </button>
         </div>
       
