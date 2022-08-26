@@ -34,6 +34,7 @@
   position: fixed;
   z-index: 2;
   background-color: #e9dfcc; 
+  margin: -.1rem;
 
   /* background-color: ; */
 }
@@ -42,5 +43,6 @@
   /* position: fixed; */
   /* left: 44%; */
   /* height: 22rem; */
+  margin: 0;
 
 }

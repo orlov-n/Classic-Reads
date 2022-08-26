@@ -12,9 +12,9 @@
   min-width: 24rem;
   max-height: 22vh;
   margin-top: .51rem;
-  margin-bottom: 2.51rem;
+  margin-bottom: 3.92vh;
   position: relative;
-box-shadow: inset .3rem .93rem .952rem .931rem rgba(0,0,0,0.16), 0 .3rem .3rem 1.2rem rgba(0,0,0,0.45);
+box-shadow: inset .3vh .93vh .952vh .931vh rgba(0,0,0,0.16), 0 .3vh .3vh 1.2vh rgba(0,0,0,0.45);
 border-radius: 1.92rem;
 /* overflow-x: hidden; */
 
@@ -37,6 +37,7 @@ border-radius: 1.92rem;
   border: none;
   margin-bottom: .41rem;
 margin-right: .52rem;
+width: 9.9vw;
 
   /* width:22vw; */
   /* min-width: 13.8rem; */

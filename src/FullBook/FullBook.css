@@ -8,20 +8,20 @@ margin-right: auto;
 left: 0;
 right: 0;
 text-align: center;
-/* overflow-x: hidden; */
+overflow-x: hidden;
 margin-top: 2vh;
 
 }
 
 embed {
-  height: 100vh;
+  height: 75vh;
   min-width: 25rem;
   width: 39vw;
   /* width: 130%; */
   /* max-width: 77vw; */
-  position: absolute;
-margin-left: auto;
-margin-right: auto;
+  /* position: absolute; */
+/* margin-left: auto; */
+/* margin-right: auto; */
 left: 0;
 right: 0;
 text-align: center;

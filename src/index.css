@@ -2,29 +2,31 @@ html {
   margin: 0;
   padding: 0;
   min-width: 300px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   /* overflow-x: hidden; */
   /* overflow-y: hidden; */
+  background-color: #e9dfcc; 
+
 
 
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 300px;
   background-color: #e9dfcc; 
-  width: 100vw;
+  width: 106vw;
   height: 100vh;
-  /* overflow-x: hidden; */
-  overflow-y: hidden;
+  /* width: auto; */
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
   
 }
 
