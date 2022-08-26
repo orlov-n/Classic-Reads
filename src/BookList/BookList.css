@@ -1,9 +1,9 @@
 .book-list-container {
    /* display: flex; 
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;  */
+  flex-direction: row; */
+  /* justify-content: center; */
+  /* align-items: center;  */
   /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   margin-left: 0;
@@ -17,6 +17,7 @@
   padding: 4% 8% 11% 8%; */
   width: 100%;
   /* margin-right: 22%; */
+  /* overflow-x: hidden; */
 
 }
 
@@ -26,4 +27,20 @@
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   /* padding: -1% 20%; */
+}
+
+.next-previous-container {
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  background-color: #e9dfcc; 
+
+  /* background-color: ; */
+}
+
+.next-page-button {
+  /* position: fixed; */
+  /* left: 44%; */
+  /* height: 22rem; */
+
 }

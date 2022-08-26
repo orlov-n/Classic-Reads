@@ -12,17 +12,13 @@
   min-width: 24rem;
   max-height: 22vh;
   margin-top: .51rem;
-  margin-bottom: 4.51rem;
+  margin-bottom: 2.51rem;
   position: relative;
 box-shadow: inset .3rem .93rem .952rem .931rem rgba(0,0,0,0.16), 0 .3rem .3rem 1.2rem rgba(0,0,0,0.45);
 border-radius: 1.92rem;
-  
+/* overflow-x: hidden; */
 
 } 
-
-
-
- 
 
  .button-top-books {
   /* display: block;
