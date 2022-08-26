@@ -5,14 +5,14 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap; */
-  width: 55%;
+  width: 33%;
   margin: auto;
   /* margin-bottom: 1rem; */
   min-height: 8rem;
-  min-width: 24rem;
+  min-width: 22rem;
   max-height: 22vh;
   margin-top: .51rem;
-  margin-bottom: 3.92vh;
+  margin-bottom: 1rem;
   position: relative;
 box-shadow: inset .3vh .93vh .952vh .931vh rgba(0,0,0,0.16), 0 .3vh .3vh 1.2vh rgba(0,0,0,0.45);
 border-radius: 1.92rem;

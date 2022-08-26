@@ -22,7 +22,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width: 300px;
   background-color: #e9dfcc; 
-  width: 106vw;
+  /* width: 106vw; */
   height: 100vh;
   /* width: auto; */
   overflow-x: hidden;
