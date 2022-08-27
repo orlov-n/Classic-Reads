@@ -18,6 +18,8 @@
   width: 100%;
   /* margin-right: 22%; */
   /* overflow-x: hidden; */
+  /* margin-top: 19vh;
+  padding-top: 19vh; */
 
 }
 
@@ -27,14 +29,23 @@
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   /* padding: -1% 20%; */
+  /* margin-top: 19vh; */
+  padding-top: 19vh;
+
+
 }
 
 .next-previous-container {
   width: 100%;
   position: fixed;
+  top: 1;
   z-index: 2;
-  background-color: #e9dfcc; 
+  /* background-color: #e9dfcc;  */
   margin: -.1rem;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 19vh; */
+
 
   /* background-color: ; */
 }
@@ -44,5 +55,7 @@
   /* left: 44%; */
   /* height: 22rem; */
   margin: 0;
+  margin-top: 19vh;
+
 
 }

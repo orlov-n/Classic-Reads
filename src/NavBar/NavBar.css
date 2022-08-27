@@ -18,6 +18,11 @@
 box-shadow: inset .3vh .93vh .952vh .931vh rgba(0,0,0,0.16), 0 .3vh .3vh 1.2vh rgba(0,0,0,0.45);
 border-radius: 1.92rem;
 max-width: 100rem;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 2;
 /* overflow-x: hidden; */
 
 } 
