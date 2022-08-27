@@ -26,19 +26,27 @@
 }
 
 .book-welcome {
-  min-height: 10rem;
-  min-width: 18rem;
-  max-height: 100rem;
-  height: 30.44vh;
-  width: 40.36vh;
-  object-fit: contain;
+  min-width: 21rem;
+  min-height: 15rem;
+  /* max-height: 100rem; */
+  /* height: 30.44vh; */
+  /* width: 40.36vw;/ */
+  /* object-fit: contain; / */
   /* margin-left: 5.2%; */
   /* margin: 5vh; */
-  background: #fff;
+  /* background: #fff;
   perspective: 70rem;
   position: relative;
   margin-top: .2rem;
-  margin-bottom: .962rem;
+  margin-bottom: .962rem; */
+  /* padding: 10px; */
+  box-sizing: border-box;
+  resize: horizontal;
+  /* border: 1px dashed; */
+  max-width: 100%;
+  height: calc(97vh - 610.206px);
+  width: calc(114vh - 650.206px);
+
   
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 0 3px #fff, 0 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 7px #69674b, 0 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.51);
 }

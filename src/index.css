@@ -1,7 +1,7 @@
 html {
   margin: 0;
   padding: 0;
-  min-width: 300px;
+  min-width: 350px;
   /* overflow-y: scroll; */
   width: 100%;
   /* height: 100%; */
@@ -20,7 +20,7 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 300px;
+  min-width: 350px;
   background-color: #e9dfcc; 
   /* width: 106vw; */
   height: 100vh;
