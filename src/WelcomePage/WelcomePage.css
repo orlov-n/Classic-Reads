@@ -44,8 +44,8 @@
   resize: horizontal;
   /* border: 1px dashed; */
   max-width: 100%;
-  height: calc(97vh - 610.206px);
-  width: calc(114vh - 650.206px);
+  height: calc(97vh - 510.206px);
+  width: calc(149vh - 650.206px);
 
   
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 0 3px #fff, 0 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 7px #69674b, 0 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.51);
@@ -55,7 +55,7 @@
   min-width: 10rem;
   min-height: 2.5rem;
   /* height: 120%; */
-  width: 49%;
+  width: 69%;
   max-width: 20rem;
   font-size: min(3.5rem, 2.73vh);
   border: none;
