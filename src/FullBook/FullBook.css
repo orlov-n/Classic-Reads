@@ -1,8 +1,8 @@
 .full-book-container {
   /* width: 100%; */
-  width: 100vw;
-  max-width: 60rem;
-  /* position: absolute; */
+  /* width: 100vw; */
+  max-width: 61rem;
+  position: absolute;
 /* margin-left: auto; */
 /* margin-right: auto; */
 /* left: 0; */
@@ -15,15 +15,15 @@ margin-bottom: 2vh;
 
 embed {
   height: 92vh;
-  min-width: 23rem;
-  width: 39.39vw;
-  width:75.34%;
+  min-width: 25rem;
+  width: 36vw;
+  /* width:75.34%; */
   /* max-width: 77vw; */
   /* position: absolute; */
-/* margin-left: auto; */
+margin-left: auto;
 /* margin-right: auto; */
-/* left: 0; */
-/* right: 0; */
+left: 0;
+right: 0;
 /* text-align: center; */
 overflow-x: hidden;
 

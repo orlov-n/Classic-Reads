@@ -43,9 +43,12 @@
   box-sizing: border-box;
   resize: horizontal;
   /* border: 1px dashed; */
-  max-width: 100%;
+  /* max-width: 100%; */
   height: calc(97vh - 510.206px);
   width: calc(149vh - 650.206px);
+  max-width: 95vw;
+  max-height: 30vw;
+  margin-bottom: 3v4;
 
   
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5), 0 0 0 3px #fff, 0 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 0 7px #69674b, 0 0 1px 8px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.51);
@@ -69,7 +72,7 @@ box-shadow: inset 0 .2rem .4rem rgba(0,0,0,0.16), 0 .3rem .4rem rgba(0,0,0,0.45)
 .welcome-message {
 
   color: black;
-  margin-top: 2vh;
+  margin-top: 4.2vw;
   /* margin: 1rem 1rem; */
   /* border-radius: 3rem; */
   padding: .521rem;
