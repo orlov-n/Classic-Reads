@@ -10,6 +10,8 @@ export const WelcomePage = ({ book }) => {
     <section className="welcome-page-container">
       <h2 className="welcome-message">Enjoy This Random Classic!</h2>
       
+    {!book.id ? <h2>Loading...</h2> 
+    :
       <div className="welcome-book-container">
 
       <NavLink
@@ -23,7 +25,7 @@ export const WelcomePage = ({ book }) => {
          New Random Book
       </button>
         </div>
-      
+        }
     </section>
   );
 };

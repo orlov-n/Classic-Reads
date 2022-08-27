@@ -106,20 +106,20 @@ const App = () => {
           exact
           path="/"
           render={() => <WelcomePage book={randomBook} />}
-        />
-
+          />
+          
         <Route
-          exact
-          path="/full-book/:book_id"
-          render={(match) => {
-            return (
-              <FullBook
-                bookId={match.match.params.book_id}
-                currentBookId={currentLocation}
-              />
+        exact
+        path="/full-book/:book_id"
+        render={(match) => {
+          return (
+            <FullBook
+            bookId={match.match.params.book_id}
+            currentBookId={currentLocation}
+            />
             );
           }}
-        />
+          />
 
         {MyComponent()}
 
