@@ -11,7 +11,7 @@ import { NavBar } from "../NavBar/NavBar";
 const App = () => {
   const [bookList, setBookList] = useState({});
   const [userInput, setUserInput] = useState("");
-  const [userSearchResults, setUserSearchResults] = useState([]);
+  const [userSearchResults, setUserSearchResults] = useState(null);
   const [booklistId, setBookListId] = useState(window.location.pathname);
   const [currentLocation, setCurrentLocation] = useState(
     window.location.pathname
@@ -27,6 +27,7 @@ const App = () => {
   }, [booklistId, currentLocation, searchPageNum, userInput]);
 
   const makeSearch = () => {
+    setUserSearchResults(null)
     userInput &&
       searchQuery(searchPageNum, userInput).then((response) => {
         console.log("response from search results", response);
@@ -36,7 +37,11 @@ const App = () => {
           }
         });
         setUserSearchResults(acceptableFormats);
-      });
+      })
+      .catch(error => {
+        console.log('this is error from search', error)
+      })
+
   };
 
   const getRandomBook = () => {
@@ -89,10 +94,20 @@ const App = () => {
   };
 
   const handleSearch = (query) => {
+    
     setUserInput(query);
     setSearchPageNum(1);
     setTempUserInput(query);
   };
+  
+  // const showError = () => {
+  //   let error = 'No results Found'
+  //   setTimeout(() => {
+  //     console.log('hello hello')
+  //     return error
+  //   }, 2000)
+  // }
+
 
   return (
     <>
@@ -137,7 +152,9 @@ const App = () => {
             }}
           />
         )}
-
+        
+        {/* {!userSearchResults.length === 0 ? (<h2 className='searching-message'>Searching...</h2>, <h2 className="error-message">{showError()}</h2>)
+                : */}
         <Route
           exact
           path="/search/:userInput/:search_page_num"
@@ -154,6 +171,7 @@ const App = () => {
             );
           }}
         ></Route>
+        {/* } */}
       </main>
     </>
   );

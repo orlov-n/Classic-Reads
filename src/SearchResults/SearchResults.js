@@ -11,7 +11,6 @@ export const SearchResults = ({
   currentLocation,
   handleSearch,
 }) => {
-  const [newSearchResults, setNewSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [tempSearch, setTempSearch] = useState("");
@@ -43,19 +42,60 @@ export const SearchResults = ({
   };
 
   return (
+    
+    // <section className="search-results-container">
+     
+    //    <NavLink
+    //     to={`/search/${query}/${searchPageNum + 1}`}
+    //     style={{ textDecoration: "none" }}
+    //   >
+    //     <button>Next Page</button>
+    //   </NavLink>
+    // </section>
+    
     <section className="search-results-container">
-      <NavLink
-        to={`/search/${query}/${searchPageNum + 1}`}
-        style={{ textDecoration: "none" }}
-      >
-        <button>Next Page</button>
-      </NavLink>
-      {newSearchResults && renderBookCards()}
+     
+      {userSearchResults === null && <p className="searching">Searching...</p>}
+      
+      {(userSearchResults !== null && userSearchResults.length > 0) && renderBookCards()}
+
+      {(userSearchResults !== null && userSearchResults.length > 0) && <NavLink to={`/search/${query}/${searchPageNum + 1}`} style={{ textDecoration: "none" }}><button>Next Page</button></NavLink>}
+
+      {userSearchResults !== null && userSearchResults.length === 0 && <p className="no-results">No results</p>}
     </section>
   );
-};
+// };
+
+
+// const showError = () => {
+  // let errorMessage = 'no results'
+//   setTimeout(() => {
+
+//     return errorMessage
+//   }, 2000)
+// }
+
+//   return (
+
+//     <section className="search-results-container">
+//         {/* {userSearchResults.length === 0 ? <h2>Searching...</h2> */}
+//     {/* {userSearchResults.length === 0 ? (<h2>Searching...</h2>, setTimeout(<h2>No results</h2>, 2000 )) */}
+//     {userSearchResults.length === 0 ? (<h2 className='searching-message'>Searching...</h2>, <h2>{showError()}</h2>)
+//       :
+//       (<NavLink
+//         to={`/search/${query}/${searchPageNum + 1}`}
+//         style={{ textDecoration: "none" }}
+//       >
+//         <button>Next Page</button>
+//       </NavLink>,
+//        renderBookCards())
+// }
+//     </section>
+//   );
+// };
+
 
 // SearchResults.propTypes = {
 //   userInput: PropTypes.string.isRequired,
 //   setUserSearchResults: PropTypes.func.isRequired
-// };
+};
