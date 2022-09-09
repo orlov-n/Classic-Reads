@@ -27,21 +27,21 @@ const App = () => {
   }, [booklistId, currentLocation, searchPageNum, userInput]);
 
   const makeSearch = () => {
-    setUserSearchResults(null)
+    setUserSearchResults(null);
     userInput &&
-      searchQuery(searchPageNum, userInput).then((response) => {
-        console.log("response from search results", response);
-        let acceptableFormats = response.results.filter((item) => {
-          if (item.formats["text/html"]) {
-            return item;
-          }
+      searchQuery(searchPageNum, userInput)
+        .then((response) => {
+          console.log("response from search results", response);
+          let acceptableFormats = response.results.filter((item) => {
+            if (item.formats["text/html"]) {
+              return item;
+            }
+          });
+          setUserSearchResults(acceptableFormats);
+        })
+        .catch((error) => {
+          console.log("this is error from search", error);
         });
-        setUserSearchResults(acceptableFormats);
-      })
-      .catch(error => {
-        console.log('this is error from search', error)
-      })
-
   };
 
   const getRandomBook = () => {
@@ -94,12 +94,11 @@ const App = () => {
   };
 
   const handleSearch = (query) => {
-    
     setUserInput(query);
     setSearchPageNum(1);
     setTempUserInput(query);
   };
-  
+
   // const showError = () => {
   //   let error = 'No results Found'
   //   setTimeout(() => {
@@ -107,7 +106,6 @@ const App = () => {
   //     return error
   //   }, 2000)
   // }
-
 
   return (
     <>
@@ -121,20 +119,20 @@ const App = () => {
           exact
           path="/"
           render={() => <WelcomePage book={randomBook} />}
-          />
-          
+        />
+
         <Route
-        exact
-        path="/full-book/:book_id"
-        render={(match) => {
-          return (
-            <FullBook
-            bookId={match.match.params.book_id}
-            currentBookId={currentLocation}
-            />
+          exact
+          path="/full-book/:book_id"
+          render={(match) => {
+            return (
+              <FullBook
+                bookId={match.match.params.book_id}
+                currentBookId={currentLocation}
+              />
             );
           }}
-          />
+        />
 
         {MyComponent()}
 
@@ -152,9 +150,7 @@ const App = () => {
             }}
           />
         )}
-        
-        {/* {!userSearchResults.length === 0 ? (<h2 className='searching-message'>Searching...</h2>, <h2 className="error-message">{showError()}</h2>)
-                : */}
+
         <Route
           exact
           path="/search/:userInput/:search_page_num"

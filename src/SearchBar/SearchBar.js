@@ -26,7 +26,6 @@ export const SearchBar = ({ handleSearch, tempUserInput }) => {
         placeholder="Search Here"
         type="text"
         value={query}
-        // value={` ${query}`}
       ></input>
 
       <NavLink to={`/search/${query}/1`} style={{ textDecoration: "none" }}>
