@@ -11,7 +11,7 @@ import { NavBar } from "../NavBar/NavBar";
 const App = () => {
   const [bookList, setBookList] = useState({});
   const [userInput, setUserInput] = useState("");
-  const [userSearchResults, setUserSearchResults] = useState([]);
+  const [userSearchResults, setUserSearchResults] = useState(null);
   const [booklistId, setBookListId] = useState(window.location.pathname);
   const [currentLocation, setCurrentLocation] = useState(
     window.location.pathname
@@ -27,16 +27,21 @@ const App = () => {
   }, [booklistId, currentLocation, searchPageNum, userInput]);
 
   const makeSearch = () => {
+    setUserSearchResults(null);
     userInput &&
-      searchQuery(searchPageNum, userInput).then((response) => {
-        console.log("response from search results", response);
-        let acceptableFormats = response.results.filter((item) => {
-          if (item.formats["text/html"]) {
-            return item;
-          }
+      searchQuery(searchPageNum, userInput)
+        .then((response) => {
+          console.log("response from search results", response);
+          let acceptableFormats = response.results.filter((item) => {
+            if (item.formats["text/html"]) {
+              return item;
+            }
+          });
+          setUserSearchResults(acceptableFormats);
+        })
+        .catch((error) => {
+          console.log("this is error from search", error);
         });
-        setUserSearchResults(acceptableFormats);
-      });
   };
 
   const getRandomBook = () => {
@@ -93,6 +98,14 @@ const App = () => {
     setSearchPageNum(1);
     setTempUserInput(query);
   };
+
+  // const showError = () => {
+  //   let error = 'No results Found'
+  //   setTimeout(() => {
+  //     console.log('hello hello')
+  //     return error
+  //   }, 2000)
+  // }
 
   return (
     <>
@@ -154,6 +167,7 @@ const App = () => {
             );
           }}
         ></Route>
+        {/* } */}
       </main>
     </>
   );

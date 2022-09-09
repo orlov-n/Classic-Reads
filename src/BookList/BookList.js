@@ -25,10 +25,12 @@ const BookList = ({ bookListProp, pageId }) => {
 
   return (
     <section className="book-list-container">
-      <NavLink to={`/page/${pageId + 1}`} style={{ textDecoration: "none" }}>
-        <button>Next Page</button>
-      </NavLink>
-      {bookListProp && renderBookCards()}
+      <div className="next-previous-container">
+        <NavLink to={`/page/${pageId + 1}`} style={{ textDecoration: "none" }}>
+          <button className="next-page-button">Next Page</button>
+        </NavLink>
+      </div>
+      <div className="book-cards-grid">{bookListProp && renderBookCards()}</div>
     </section>
   );
 };
