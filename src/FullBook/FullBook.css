@@ -9,7 +9,7 @@
 /* right: 0; */
 text-align: center;
 /* overflow-x: hidden; */
-margin-top: 2vh;
+margin-top: max(12.2rem, 15vh);
 margin-bottom: 2vh;
 }
 

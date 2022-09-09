@@ -1,10 +1,80 @@
 .search-results-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-left: 12rem;
-  margin-right: 9rem;
-  
+  /* display: flex; 
+ flex-wrap: wrap;
+ flex-direction: row; */
+ /* justify-content: center; */
+ /* align-items: center;  */
+ /* display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+ margin-left: 0;
+ margin-right: 0; */
+ /* margin-left: 2rem;
+ margin-right: 2rem; */
+ /* width: 100vw;
+ display: grid;
+ grid-gap: 1rem;
+ grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+ padding: 4% 8% 11% 8%; */
+ width: 100%;
+ /* margin-right: 22%; */
+ /* overflow-x: hidden; */
+ /* margin-top: 19vh; */
+ /* padding-top: 19rem; */
+ 
+
+ /* display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ margin-left: 12rem;
+ margin-right: 9rem; */
+ 
 }
+
+.book-cards-grid {
+ /* width: 96vw; */
+ /* display: grid; */
+ /* grid-gap: 1rem; */
+ /* grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr)); */
+ /* padding: -1% 20%; */
+ /* margin-top: 19vh; */
+ /* padding-top: 19vh; */
+
+
+}
+
+.next-previous-container {
+ width: 100%;
+ position: fixed;
+ top: 1;
+ z-index: 2;
+ /* background-color: #e9dfcc;  */
+ margin: -.1rem;
+ display: flex;
+ justify-content: center;
+ margin-top: 19vh;
+ /* margin-bottom: 11vh; */
+
+
+ /* background-color: ; */
+}
+
+.next-page-button {
+ /* position: fixed; */
+ /* left: 44%; */
+ /* height: 22rem; */
+ /* margin: 0;
+ margin-top: 19vh; */
+
+
+}
+
+
+/* display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-left: 12rem;
+margin-right: 9rem; */

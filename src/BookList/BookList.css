@@ -18,8 +18,9 @@
   width: 100%;
   /* margin-right: 22%; */
   /* overflow-x: hidden; */
-  /* margin-top: 19vh;
-  padding-top: 19vh; */
+  /* margin-top: 19vh; */
+  /* padding-top: 19rem; */
+  
 
 }
 
@@ -30,7 +31,8 @@
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   /* padding: -1% 20%; */
   /* margin-top: 19vh; */
-  padding-top: 19vh;
+  padding-top: max(10.5rem, 19vh);
+  /* padding-top: 19vh; */
 
 
 }
@@ -44,7 +46,8 @@
   margin: -.1rem;
   display: flex;
   justify-content: center;
-  /* margin-top: 19vh; */
+  margin-top: 19vh;
+  /* margin-bottom: 11vh; */
 
 
   /* background-color: ; */
@@ -54,8 +57,8 @@
   /* position: fixed; */
   /* left: 44%; */
   /* height: 22rem; */
-  margin: 0;
-  margin-top: 19vh;
+  /* margin: 0;
+  margin-top: 19vh; */
 
 
 }

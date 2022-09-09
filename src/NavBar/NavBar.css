@@ -14,6 +14,7 @@
   max-height: 22vh;
   margin-top: 1.51vh;
   margin-bottom: 1rem;
+  /* margin-right: 9vw; */
   position: relative;
 box-shadow: inset .3vh .93vh .952vh .931vh rgba(0,0,0,0.16), 0 .3vh .3vh 1.2vh rgba(0,0,0,0.45);
 border-radius: 1.92rem;
