@@ -42,9 +42,8 @@ export const SearchResults = ({
   };
 
   return (
-    
     // <section className="search-results-container">
-     
+
     //    <NavLink
     //     to={`/search/${query}/${searchPageNum + 1}`}
     //     style={{ textDecoration: "none" }}
@@ -52,50 +51,63 @@ export const SearchResults = ({
     //     <button>Next Page</button>
     //   </NavLink>
     // </section>
-    
+
     <section className="search-results-container">
-     
-      {userSearchResults === null && <p className="searching">Searching...</p>}
-      
-      {(userSearchResults !== null && userSearchResults.length > 0) && renderBookCards()}
+      <div className="next-previous-container">
+        {userSearchResults !== null && userSearchResults.length > 0 && (
+          <NavLink
+            to={`/search/${query}/${searchPageNum + 1}`}
+            style={{ textDecoration: "none" }}
+          >
+            <button className="next-page-button">Next Page</button>
+          </NavLink>
+        )}
+      </div>
+      <div className="book-cards-grid">
+        {userSearchResults === null && (
+          <p className="searching">Searching...</p>
+        )}
 
-      {(userSearchResults !== null && userSearchResults.length > 0) && <NavLink to={`/search/${query}/${searchPageNum + 1}`} style={{ textDecoration: "none" }}><button>Next Page</button></NavLink>}
+        {userSearchResults !== null &&
+          userSearchResults.length > 0 &&
+          renderBookCards()}
+      </div>
 
-      {userSearchResults !== null && userSearchResults.length === 0 && <p className="no-results">No results</p>}
+      {userSearchResults !== null && userSearchResults.length === 0 && (
+        <p className="no-results">No results</p>
+      )}
     </section>
   );
-// };
+  // };
 
-
-// const showError = () => {
+  // const showError = () => {
   // let errorMessage = 'no results'
-//   setTimeout(() => {
+  //   setTimeout(() => {
 
-//     return errorMessage
-//   }, 2000)
-// }
+  //     return errorMessage
+  //   }, 2000)
+  // }
 
-//   return (
+  //   return (
 
-//     <section className="search-results-container">
-//         {/* {userSearchResults.length === 0 ? <h2>Searching...</h2> */}
-//     {/* {userSearchResults.length === 0 ? (<h2>Searching...</h2>, setTimeout(<h2>No results</h2>, 2000 )) */}
-//     {userSearchResults.length === 0 ? (<h2 className='searching-message'>Searching...</h2>, <h2>{showError()}</h2>)
-//       :
-//       (<NavLink
-//         to={`/search/${query}/${searchPageNum + 1}`}
-//         style={{ textDecoration: "none" }}
-//       >
-//         <button>Next Page</button>
-//       </NavLink>,
-//        renderBookCards())
-// }
-//     </section>
-//   );
-// };
+  //     <section className="search-results-container">
+  //         {/* {userSearchResults.length === 0 ? <h2>Searching...</h2> */}
+  //     {/* {userSearchResults.length === 0 ? (<h2>Searching...</h2>, setTimeout(<h2>No results</h2>, 2000 )) */}
+  //     {userSearchResults.length === 0 ? (<h2 className='searching-message'>Searching...</h2>, <h2>{showError()}</h2>)
+  //       :
+  //       (<NavLink
+  //         to={`/search/${query}/${searchPageNum + 1}`}
+  //         style={{ textDecoration: "none" }}
+  //       >
+  //         <button>Next Page</button>
+  //       </NavLink>,
+  //        renderBookCards())
+  // }
+  //     </section>
+  //   );
+  // };
 
-
-// SearchResults.propTypes = {
-//   userInput: PropTypes.string.isRequired,
-//   setUserSearchResults: PropTypes.func.isRequired
+  // SearchResults.propTypes = {
+  //   userInput: PropTypes.string.isRequired,
+  //   setUserSearchResults: PropTypes.func.isRequired
 };
